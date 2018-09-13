@@ -5,6 +5,7 @@ import xiangxiye from '../components/Detailedpage/xiangxiye'
 import login from '../components/IsLogin/login'
 import more from '../components/Seemore/more'
 import moreall from '../components/Seemore/moreall'
+import add from '../components/Add/add'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path:'/allmore_learning',
       name:'allmorelearningLink',
       component:moreall
+    },
+    {
+      path:'/add',
+      name:'addLink',
+      component:add
     },
     {path:'*',redirect:'/'}
   ]

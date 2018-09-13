@@ -77,5 +77,23 @@
 			"kind":"css",
 			"id":9
 		}
+	],
+	"kinds":[
+		{
+			"id":1,
+			"kind":"css"
+		},
+		{
+			"id":2,
+			"kind":"html"
+		},
+		{
+			"id":3,
+			"kind":"vue"
+		},
+		{
+			"id":4,
+			"kind":"javascript"
+		}
 	]
 }
