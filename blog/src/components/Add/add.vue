@@ -5,6 +5,7 @@
             <input type="text" v-model="content.Detailed">
             <button type="submit"   >提交</button>
         </form>
+        //sssss
     </div>
 </template>
 
