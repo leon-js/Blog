@@ -25,19 +25,32 @@ export default {
     created(){
         let routerParams = this.$route.query.kind
         this.kind = routerParams
-        this.http.get("content?kind="+this.kind+"&_sort=time&_order=desc")
+        this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
             .then(res => this.$store.commit("setContent",res.data))
-        this.getAllVue
     },
     computed:{
         getAllVue(){
             return this.$store.getters.getContent
         }
     },
-    watch:{
-        '$route'(to,from){
-            this.$router.go(0)
-        }
+//     beforeCreate（创建前）,
+
+// created（创建后）,
+
+// beforeMount(载入前),
+
+// mounted（载入后）,
+
+// beforeUpdate（更新前）,
+
+// updated（更新后）,
+
+// beforeDestroy（销毁前）,
+
+// destroyed（销毁后）
+    beforeMount(){
+        this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
+            .then(res => this.$store.commit("setContent",res.data))
     }
 }
 </script>

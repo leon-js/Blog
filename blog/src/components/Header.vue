@@ -35,8 +35,8 @@
              return sessionStorage.getItem("isLogin")
          }
      },
-     methods:{
-
+     created(){
+         this.isLogin
      }
  }
  </script>

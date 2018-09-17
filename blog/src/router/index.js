@@ -6,6 +6,7 @@ import login from '../components/IsLogin/login'
 import more from '../components/Seemore/more'
 import moreall from '../components/Seemore/moreall'
 import add from '../components/ZSGC/add'
+import transfer from '../components/transfer'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path:'/add',
       name:'addLink',
       component:add
+    },
+    {
+      path:'/transfer',
+      name:'transferLink',
+      component:transfer
     },
     {path:'*',redirect:'/'}
   ]

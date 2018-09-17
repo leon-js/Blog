@@ -60,6 +60,9 @@ export default {
                 if (strDate >= 0 && strDate <= 9) {
                     strDate = "0" + strDate;
                 }
+                if (second >= 0 && second <= 9) {
+                    second = "0" + second;
+                }
                 var currentdate = year + seperator1 + month + seperator1 + strDate + " " +hour + ":" + minute + ":" + second;
                 console.log(currentdate)
                 let newContent = {
@@ -71,7 +74,8 @@ export default {
                 this.http.post("content",newContent)
                     .then(res =>console.log(newContent))
                 alert("添加成功")
-                this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=time&_order=asc"})
+                // this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=time&_order=asc"},query={kind:this.kind})
+                this.$router.push({name:"transferLink",query:{kind:this.kind}})
             }
             e.preventDefault()
         }
