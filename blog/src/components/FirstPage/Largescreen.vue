@@ -58,7 +58,7 @@ export default {
         }
     },
     created(){
-        this.http.get("content?_sort=time&_order=asc")
+        this.http.get("content?_sort=id&_order=desc")
             .then(res => this.$store.commit("setContent",res.data))
     },
     computed:{

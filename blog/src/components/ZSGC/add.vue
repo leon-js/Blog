@@ -2,12 +2,12 @@
     <div>
         <form>
             <input type="text" v-model="content.title">
-            <input type="text" v-model="content.Detailed">
-            <label>下拉1组：</label>
+            <textarea type="text" style="resize:none" v-model="content.Detailed"></textarea>
+            <!-- <label>下拉1组：</label>
             <select v-model="content.kind">
             <option disabled >--请选择--</option>
             <option :value="kind.kind" v-for="kind in getKinds" :key="kind.index">{{kind.kind}}</option>
-            </select>
+            </select> -->
             {{kind}}
             <button type="button" @click="addContent">提交</button>
         </form>
@@ -41,9 +41,11 @@ export default {
                 alert("请输入内容")
             }else if(!this.content.title || !this.content.Detailed){
                 alert("请输入相应的内容")
-            }else if(!this.content.kind){
-                alert("请选择相应的类型")
-            }else{
+            }
+            // else if(!this.content.kind){
+            //     alert("请选择相应的类型")
+            // }
+            else{
                 var date = new Date();
                 var seperator1 = "-";
                 var year = date.getFullYear();
@@ -64,7 +66,7 @@ export default {
                     title : this.content.title,
                     Detailed : this.content.Detailed,
                     time : currentdate,
-                    kind : this.content.kind
+                    kind : this.kind
                 }
                 this.http.post("content",newContent)
                     .then(res =>console.log(newContent))

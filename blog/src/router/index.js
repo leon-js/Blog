@@ -5,7 +5,7 @@ import xiangxiye from '../components/Detailedpage/xiangxiye'
 import login from '../components/IsLogin/login'
 import more from '../components/Seemore/more'
 import moreall from '../components/Seemore/moreall'
-import add from '../components/Add/add'
+import add from '../components/ZSGC/add'
 
 Vue.use(Router)
 

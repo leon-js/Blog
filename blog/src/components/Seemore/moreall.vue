@@ -27,10 +27,16 @@ export default {
         this.kind = routerParams
         this.http.get("content?kind="+this.kind+"&_sort=time&_order=desc")
             .then(res => this.$store.commit("setContent",res.data))
+        this.getAllVue
     },
     computed:{
         getAllVue(){
             return this.$store.getters.getContent
+        }
+    },
+    watch:{
+        '$route'(to,from){
+            this.$router.go(0)
         }
     }
 }
