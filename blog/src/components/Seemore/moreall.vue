@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <router-link :to="{name:'addLink'}">添加</router-link>
+                <router-link :to="{name:'addLink',query:{kind:this.kind}}">添加</router-link>
             </div>
         </div>
     </div>

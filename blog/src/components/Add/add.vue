@@ -8,6 +8,7 @@
             <option disabled >--请选择--</option>
             <option :value="kind.kind" v-for="kind in getKinds" :key="kind.index">{{kind.kind}}</option>
             </select>
+            {{kind}}
             <button type="button" @click="addContent">提交</button>
         </form>
     </div>
@@ -18,9 +19,12 @@ export default {
     data(){
         return{
             content:{},
+            kind:''
         }
     },
     created(){
+        let routerParams = this.$route.query.kind
+        this.kind = routerParams
         this.http.get("kinds")
             .then(res => this.$store.commit("setKinds",res.data))
     },
@@ -37,6 +41,8 @@ export default {
                 alert("请输入内容")
             }else if(!this.content.title || !this.content.Detailed){
                 alert("请输入相应的内容")
+            }else if(!this.content.kind){
+                alert("请选择相应的类型")
             }else{
                 var date = new Date();
                 var seperator1 = "-";
@@ -60,7 +66,10 @@ export default {
                     time : currentdate,
                     kind : this.content.kind
                 }
-                console.log(newContent)
+                this.http.post("content",newContent)
+                    .then(res =>console.log(newContent))
+                alert("添加成功")
+                this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=time&_order=asc"})
             }
             e.preventDefault()
         }

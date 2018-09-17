@@ -43,7 +43,7 @@
                     <div class="card-header bg-dark text-white">
                         <div class="row">
                             <div class="col-md-8">Html</div>
-                            <div class="col-md-4 ml-auto text-right">All</div>
+                            <div class="col-md-4 ml-auto text-right"><router-link v-bind:Html="Html" :to="{name:'allmorelearningLink',query:{kind:Html}}">All</router-link></div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -65,7 +65,7 @@
                     <div class="card-header bg-dark text-white">
                         <div class="row">
                             <div class="col-md-8">Css</div>
-                            <div class="col-md-4 ml-auto text-right">All</div>
+                            <div class="col-md-4 ml-auto text-right"><router-link v-bind:Css="Css" :to="{name:'allmorelearningLink',query:{kind:Css}}">All</router-link></div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -87,7 +87,7 @@
                     <div class="card-header bg-dark text-white">
                         <div class="row">
                             <div class="col-md-8">Javascript</div>
-                            <div class="col-md-4 ml-auto text-right">All</div>
+                            <div class="col-md-4 ml-auto text-right"><router-link v-bind:Javascript="Javascript" :to="{name:'allmorelearningLink',query:{kind:Javascript}}">All</router-link></div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -112,7 +112,10 @@
 export default {
     data(){
         return{
-            Vue:'vue'
+            Vue:'vue',
+            Html:'html',
+            Css:'css',
+            Javascript:'javascript'
         }
     },
     created(){
