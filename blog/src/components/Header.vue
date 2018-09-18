@@ -16,7 +16,7 @@
                 </div>
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link" v-show="isLogin">{{currenuser}}</a>
-                    <!-- <router-link @click="out" :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="isLogin">Sign out</router-link> -->
+                    <router-link :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="isLogin">Sign out</router-link>
                     <router-link :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="!isLogin">Log in</router-link>
                 </div>
             </div>
@@ -29,15 +29,38 @@
  export default {
      computed:{
          currenuser(){
-             return this.$store.getters.getcurrenuser
+             if(sessionStorage.getItem("isLogin") == "0"){
+                 console.log("未登录")
+             }else if(sessionStorage.getItem("isLogin") == null){
+                 console.log("未登录")
+             }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
+                 console.log(sessionStorage.getItem("name"))
+                 return sessionStorage.getItem("name")
+             }else{
+                 console.log("未登录")
+             }
          },
          isLogin(){
-             return sessionStorage.getItem("isLogin")
+             if(sessionStorage.getItem("isLogin") == "0"){
+                 console.log("未登录")
+                 return this.$store.getters.isLogin
+             }else if(sessionStorage.getItem("isLogin") == null){
+                 console.log("未登录")
+             }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
+                 console.log(this.$store.getters.noLogin)
+                 return this.$store.getters.noLogin
+             }else{
+                 console.log("未登录")
+             }
          }
      },
-     created(){
-         this.isLogin
-     }
+     methods:{
+         
+     },
+     beforeMount(){
+        this.currenuser
+        this.isLogin
+    },
  }
  </script>
 

@@ -74,9 +74,8 @@ export default {
                 this.http.post("content",newContent)
                     .then(res =>console.log(newContent))
                 alert("添加成功")
-                // this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=time&_order=asc"},query={kind:this.kind})
-                this.$router.push({name:"transferLink",query:{kind:this.kind}})
-            }
+                this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=id&_order=asc"})
+                }
             e.preventDefault()
         }
     }

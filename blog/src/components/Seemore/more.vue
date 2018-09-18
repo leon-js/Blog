@@ -143,8 +143,8 @@ export default {
         }
     },
     beforeRouteEnter:(to,from,next) => {
-        var a = sessionStorage.getItem("username")
-        if(a != null){
+        var a = sessionStorage.getItem("isLogin")
+        if(a == "1"){
             next()
         }else{
             if(confirm("对不起，您没有查看权限，请先登录") == true){

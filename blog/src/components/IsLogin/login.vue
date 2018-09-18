@@ -35,9 +35,18 @@ export default {
             password:""
         }
     },
-    // 组件内守卫
-    beforeRouteEnter:(to,from,next) => {
-        next(vm => vm.$store.dispatch("setUser",null))
+    // // 组件内守卫
+    // beforeRouteEnter:(to,from,next) => {
+    //     sessionStorage.setItem("isLogin","0")
+    // },
+    beforeMount(){
+        sessionStorage.setItem("isLogin","0")
+    },
+    updated(){
+        sessionStorage.clear()
+    },
+    beforeDestroy(){
+        this.$router.go(0)
     },
     methods:{
         signin(){
@@ -55,6 +64,8 @@ export default {
                     if(result != null && result.length > 0){
                         this.$store.dispatch("setUser",result[0].username)
                         alert("登录成功")
+                        sessionStorage.setItem("isLogin","1")
+                        sessionStorage.setItem("name",this.$store.getters.getcurrenuser)
                         this.$router.push({name:"firstLink"})
                     }else{
                         alert("账号或密码错误，请重新输入")

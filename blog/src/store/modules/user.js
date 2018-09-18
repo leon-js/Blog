@@ -2,13 +2,15 @@ const state = {
     //设置属性
     currenuser:null,
     isLogin:false,
+    noLogin:true,
     token:"",
 }
 
 const getters = {
     //获取属性状态
-    getcurrenuser : state => state.currenuser = sessionStorage.getItem("username"),
-    isLogin : state => state.isLogin = sessionStorage.getItem("isLogin")
+    getcurrenuser : state => state.currenuser,
+    isLogin : state => state.isLogin,
+    noLogin : state => state.noLogin
     // isLogin : state => {
     //     if(!state.isLogin){
     //         state.isLogin = sessionStorage.getItem("isLogin");
@@ -26,14 +28,14 @@ const mutations = {
     userStatus(state,user){
         if(user){
             state.currenuser = user,
-            state.isLogin = true,
-            sessionStorage.setItem("username",user),
-            sessionStorage.setItem("isLogin",true)
+            state.isLogin = true
+            // sessionStorage.setItem("username",user),
+            // sessionStorage.setItem("isLogin",true)
         }else if(user == null){
             state.currenuser = null,
-            state.isLogin = false,
-            sessionStorage.setItem("username",null),
-            sessionStorage.setItem("isLogin",false)
+            state.isLogin = false
+            // sessionStorage.setItem("username",null),
+            // sessionStorage.setItem("isLogin",false)
         }
     }
 }
