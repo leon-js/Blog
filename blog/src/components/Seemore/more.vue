@@ -26,7 +26,9 @@
                     </div>
                     <div class="card-body">
                         <div class="card" v-for="(vue,index) in getVue" :key="vue.index" v-if="index <= 2">
-                            <div class="card-header">{{vue.title}}</div>
+                            <div class="card-header">
+                                <h3><router-link :to="{name:'detailedLink',query:{id:vue.id}}"  href="#" >{{vue.title}}</router-link></h3>
+                            </div>
                             <div class="card-body" style="text-indent:2em;"><span class="p1">{{vue.Detailed}}</span></div>
                             <div class="card-footer">{{vue.time}}</div>
                         </div>
@@ -48,7 +50,9 @@
                     </div>
                     <div class="card-body">
                         <div class="card" v-for="(html,index) in getHtml" :key="html.index" v-if="index <= 2">
-                            <div class="card-header">{{html.title}}</div>
+                            <div class="card-header">
+                                <h3><router-link :to="{name:'detailedLink',query:{id:html.id}}"  href="#" >{{html.title}}</router-link></h3>
+                            </div>
                             <div class="card-body" style="text-indent:2em;"><span class="p1">{{html.Detailed}}</span></div>
                             <div class="card-footer">{{html.time}}</div>
                         </div>
@@ -70,7 +74,9 @@
                     </div>
                     <div class="card-body">
                         <div class="card" v-for="(css,index) in getCss" :key="css.index" v-if="index <= 2">
-                            <div class="card-header">{{css.title}}</div>
+                            <div class="card-header">
+                                <h3><router-link :to="{name:'detailedLink',query:{id:css.id}}"  href="#" >{{css.title}}</router-link></h3>
+                            </div>
                             <div class="card-body" style="text-indent:2em;"><span class="p1">{{css.Detailed}}</span></div>
                             <div class="card-footer">{{css.time}}</div>
                         </div>
@@ -92,7 +98,9 @@
                     </div>
                     <div class="card-body">
                         <div class="card" v-for="(javascript,index) in getJavascript" :key="javascript.index" v-if="index <= 2">
-                            <div class="card-header">{{javascript.title}}</div>
+                            <div class="card-header">
+                                <h3><router-link :to="{name:'detailedLink',query:{id:javascript.id}}"  href="#" >{{javascript.title}}</router-link></h3>
+                            </div>
                             <div class="card-body" style="text-indent:2em;"><span class="p1">{{javascript.Detailed}}</span></div>
                             <div class="card-footer">{{javascript.time}}</div>
                         </div>
@@ -119,13 +127,13 @@ export default {
         }
     },
     created(){
-        this.http.get("content?_sort=time&_order=desc&kind=vue")
+        this.http.get("content?_sort=id&_order=desc&kind=vue")
             .then(res => this.$store.commit("setContentvue",res.data)),
-        this.http.get("content?_sort=time&_order=desc&kind=html")
+        this.http.get("content?_sort=id&_order=desc&kind=html")
             .then(res => this.$store.commit("setContenthtml",res.data)),
-        this.http.get("content?_sort=time&_order=desc&kind=css")
+        this.http.get("content?_sort=id&_order=desc&kind=css")
             .then(res => this.$store.commit("setContentcss",res.data)),
-        this.http.get("content?_sort=time&_order=desc&kind=javascript")
+        this.http.get("content?_sort=id&_order=desc&kind=javascript")
             .then(res => this.$store.commit("setContentjavascript",res.data))
     },
     computed:{

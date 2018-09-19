@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-md-8">
                 <div v-for="vue in getAllVue" :key="vue.index">
-                    <h1>{{vue.title}}</h1>
-                    <h1>{{vue.Detailed}}</h1>
-                    <h1>{{vue.time}}</h1>
+                    <h1><router-link :to="{name:'detailedLink',query:{id:vue.id}}"  href="#" >{{vue.title}}</router-link></h1>
+                    <h2>{{vue.Detailed}}</h2>
+                    <h3>{{vue.time}}</h3>
                 </div>
             </div>
             <div class="col-md-4">

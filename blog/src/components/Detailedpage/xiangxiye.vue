@@ -1,12 +1,20 @@
 <template>
-    <div>
-        <div  v-for="de in getDetailed" :key="de.index">
-        <h1>12</h1>
-        <h2>{{msg}}</h2>
-        <h1>{{de.title}}</h1>
-        <h1>{{de.Detailed}}</h1>
-        <h1>{{de.time}}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div  v-for="de in getDetailed" :key="de.index">
+                <h1>12</h1>
+                <h2>{{msg}}</h2>
+                <h1>{{de.title}}</h1>
+                <h1>{{de.Detailed}}</h1>
+                <h1>{{de.time}}</h1>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <p><router-link :to="{name:'updateLink',query:{id:this.msg}}" class="btn btn-secondary" href="#" role="button">修改</router-link></p>
+            </div>
         </div>
+       
     </div>
 </template>
 

@@ -2,7 +2,7 @@
     <div>
         <form>
             <input type="text" v-model="content.title">
-            <textarea type="text" style="resize:none" v-model="content.Detailed"></textarea>
+            <textarea type="text" style="resize:none" v-model="content.Detailed" wrap="hard" cols="20"></textarea>
             <!-- <label>下拉1组：</label>
             <select v-model="content.kind">
             <option disabled >--请选择--</option>
@@ -39,7 +39,7 @@ export default {
                 alert("请输入标题")
             }else if(!this.content.Detailed){
                 alert("请输入内容")
-            }else if(!this.content.title || !this.content.Detailed){
+            }else if(!this.content.title && !this.content.Detailed){
                 alert("请输入相应的内容")
             }
             // else if(!this.content.kind){
