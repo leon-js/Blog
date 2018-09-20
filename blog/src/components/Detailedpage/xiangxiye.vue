@@ -12,6 +12,7 @@
             </div>
             <div class="col-md-4">
                 <p><router-link :to="{name:'updateLink',query:{id:this.msg}}" class="btn btn-secondary" href="#" role="button">修改</router-link></p>
+                <p><button @click="shanchu" class="btn btn-secondary" href="#" role="button">删除</button></p>
             </div>
         </div>
        
@@ -35,7 +36,29 @@ export default {
         getDetailed(){
             return this.$store.getters.getContent
         }
-    }
+    },
+    methods:{
+        shanchu(){
+            if(confirm("确认删除吗，将无法撤回") == true){
+                var sudo = prompt("请输入权限密码进行验证","");
+                var usersudo = sessionStorage.getItem("usersudo")
+                console.log(usersudo)
+                if(sudo == usersudo){
+                    alert("删除成功")
+                    this.http.delete("content/"+this.msg)
+                    this.$router.go(-1)
+                }else{
+                    alert("权限密码错误")
+                }
+            }
+            else{       }
+        }
+    },
+    beforeDestroy(){
+        if(sessionStorage.getItem("isLogin") == "0"){
+            this.$router.go(0)
+        }
+    },
 }
 </script>
 

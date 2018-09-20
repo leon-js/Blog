@@ -3,6 +3,7 @@ const state = {
     currenuser:null,
     isLogin:false,
     noLogin:true,
+    usersudo:null,
     token:"",
 }
 
@@ -10,17 +11,8 @@ const getters = {
     //获取属性状态
     getcurrenuser : state => state.currenuser,
     isLogin : state => state.isLogin,
-    noLogin : state => state.noLogin
-    // isLogin : state => {
-    //     if(!state.isLogin){
-    //         state.isLogin = sessionStorage.getItem("isLogin");
-    //         state.currenuser = sessionStorage.getItem("username")
-    //     }else{
-    //         state.isLogin = sessionStorage.getItem("isLogin");
-    //         state.currenuser = sessionStorage.getItem("username")
-    //     }
-    //     return state.isLogin
-    // }
+    noLogin : state => state.noLogin,
+    getusersudo: state => state.usersudo
 }
 
 const mutations = {
@@ -37,6 +29,13 @@ const mutations = {
             // sessionStorage.setItem("username",null),
             // sessionStorage.setItem("isLogin",false)
         }
+    },
+    userSudo(state,user){
+        if(user){
+            state.usersudo = user
+        }else if(user == null){
+            state.usersudo = null
+        }
     }
 }
 
@@ -44,6 +43,9 @@ const actions = {
     //应用mutations
     setUser({commit},user){
         commit("userStatus",user)
+    },
+    setUsersudo({commit},user){
+        commit("userSudo",user)
     }
 }
 

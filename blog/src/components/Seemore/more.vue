@@ -162,7 +162,12 @@ export default {
                 next(false)
             }
         }
-    }
+    },
+    beforeDestroy(){
+        if(sessionStorage.getItem("isLogin") == "0"){
+            this.$router.go(0)
+        }
+    },
 }
 </script>
 

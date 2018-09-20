@@ -2,7 +2,7 @@
     <div class="container">
         <h1 class="page-header">内容编辑</h1>
         <div class="row">
-            <form>
+            <form @submit.prevent>
                 <div class="well">
                     
                     <h4>内容详情</h4>
@@ -44,7 +44,6 @@ export default {
     },
     methods:{
         updateAll(e){
-            console.log(1)
             if(!this.message.title){
                 alert("请输入标题")
             }else if(!this.message.Detailed){
@@ -66,16 +65,18 @@ export default {
                     })
             }
             e.preventDefault();
-        },
-        nihao(){
-            
         }
     },
     computed:{
         getDetailed(){
             return this.$store.getters.getContent
         }
-    }
+    },
+    beforeDestroy(){
+        if(sessionStorage.getItem("isLogin") == "0"){
+            this.$router.go(0)
+        }
+    },
 }
 </script>
 

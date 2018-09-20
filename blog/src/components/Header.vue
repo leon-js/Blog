@@ -16,7 +16,7 @@
                 </div>
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link" v-show="isLogin">{{currenuser}}</a>
-                    <router-link :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="isLogin">Sign out</router-link>
+                    <router-link @click="shachusession" :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="isLogin">Sign out</router-link>
                     <router-link :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="!isLogin">Log in</router-link>
                 </div>
             </div>
@@ -55,7 +55,9 @@
          }
      },
      methods:{
-         
+         shachusession(){
+             sessionStorage.clear()
+         }
      },
      beforeMount(){
         this.currenuser

@@ -33,6 +33,11 @@ export default {
             return this.$store.getters.getContent
         }
     },
+    beforeDestroy(){
+        if(sessionStorage.getItem("isLogin") == "0"){
+            this.$router.go(0)
+        }
+    },
 //     beforeCreate（创建前）,
 
 // created（创建后）,
