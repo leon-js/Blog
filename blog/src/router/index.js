@@ -14,6 +14,14 @@ Vue.use(Router)
 
 export default new Router({
   mode:"history",
+  // scrollBehavior (to, from, savedPosition) {
+  //   return{selector:".zhiding"}
+  //   if(savedPosition){
+  //      return savedPosition     滚动跳转
+  //    }else{
+  //      return {x:0 ,y:0}
+  //    }
+  // },
   routes: [
     {
       path: '/',
