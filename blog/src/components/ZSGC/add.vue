@@ -9,18 +9,24 @@
             <option :value="kind.kind" v-for="kind in getKinds" :key="kind.index">{{kind.kind}}</option>
             </select> -->
             {{kind}}
+            <mavonEditor v-model="value"/>
             <button type="button" @click="addContent">提交</button>
         </form>
     </div>
 </template>
 
 <script>
+import { mavonEditor } from 'mavon-editor'
 export default {
     data(){
         return{
             content:{},
-            kind:''
+            kind:'',
+            value:''
         }
+    },
+    components:{
+        mavonEditor
     },
     created(){
         let routerParams = this.$route.query.kind
