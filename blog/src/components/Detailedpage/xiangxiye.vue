@@ -30,11 +30,12 @@ export default {
         let routerParams = this.$route.query.id
         this.msg = routerParams
         this.http.get("content?id="+routerParams)
-            .then(res => this.$store.commit("setContent",res.data))
+            .then(res => this.$store.commit("setXiangxi",res.data))
+        this.getDetailed
     },
     computed:{
         getDetailed(){
-            return this.$store.getters.getContent
+            return this.$store.getters.getXiangxi
         }
     },
     methods:{
