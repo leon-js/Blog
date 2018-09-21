@@ -44,15 +44,16 @@ export default {
                 var sudo = prompt("请输入权限密码进行验证","");
                 var usersudo = sessionStorage.getItem("usersudo")
                 console.log(usersudo)
-                if(sudo == usersudo){
+                if(sudo != null && usersudo != null && sudo == usersudo){
                     alert("删除成功")
                     this.http.delete("content/"+this.msg)
                     this.$router.go(-1)
-                }else{
+                }else if(sudo == null){}
+                else if(sudo != null && sudo != usersudo){
                     alert("权限密码错误")
-                }
+                }else{  }
             }
-            else{       }
+            else{     }
         }
     },
     beforeDestroy(){
