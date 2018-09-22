@@ -6,7 +6,8 @@
                 <h1>12</h1>
                 <h2>{{msg}}</h2>
                 <h1>{{de.title}}</h1>
-                <h1>{{de.Detailed}}</h1>
+                
+                <mavonEditor :ishljs="true" :scrollStyle="true" :editable="false" :toolbarsFlag="false" :subfield="false" :defaultOpen="defaultData" v-model="de.Detailed"/>
                 <h1>{{de.time}}</h1>
                 </div>
             </div>
@@ -20,11 +21,17 @@
 </template>
 
 <script>
+import { mavonEditor } from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 export default {
     data(){
         return{
-            msg:''
+            msg:'',
+            defaultData:'preview'
         }
+    },
+    components:{
+        mavonEditor
     },
     created(){
         let routerParams = this.$route.query.id
@@ -65,6 +72,17 @@ export default {
 </script>
 
 <style scoped>
-
+.v-note-wrapper{
+    min-height: 600px;
+}
+/* .v-note-wrapper .v-note-op.shadow{
+    display: none;
+}
+.v-note-wrapper .v-note-panel .v-note-edit.divarea-wrapper{
+    display: none;
+}
+.v-note-wrapper .v-note-panel .v-note-show{
+    flex: 0 0 100%;
+} */
 </style>
 

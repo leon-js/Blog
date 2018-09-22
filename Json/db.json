@@ -297,7 +297,7 @@
     },
     {
       "title": "嘿嘿",
-      "Detailed": "```python\nprint(\"hello world\")\n```",
+      "Detailed": "```python\nprint(\"hello world\")\nprint(\"hello world\")\n```",
       "time": "2018-09-22 12:4:26",
       "kind": "vue",
       "id": 42
