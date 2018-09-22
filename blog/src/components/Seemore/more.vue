@@ -15,6 +15,30 @@
         </div>
     </div>
     <div class="container">
+        <router-link :to="{name:'allmorelearningLink',query:{kind:Vue}}">Vue</router-link>
+        <router-link :to="{name:'allmorelearningLink',query:{kind:Html}}">Html</router-link>
+        <router-link :to="{name:'allmorelearningLink',query:{kind:Javascript}}">Javascript</router-link>
+        <router-link :to="{name:'allmorelearningLink',query:{kind:Css}}">Css</router-link>
+    </div>
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-6 card" v-for="item in getContents" :key="item.index">
+            <h2 style="text-indent:2em;">{{item.title}}</h2>
+            <p class="p1" style="text-indent:2em;">{{item.Detailed}}</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p style="text-align:right">{{item.time}}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><router-link :to="{name:'detailedLink',query:{id:item.id}}" class="btn btn-secondary" href="#" role="button">查看详细 &raquo;</router-link></p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    <!-- <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
@@ -111,7 +135,7 @@
                 
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
    
 </template>
@@ -126,17 +150,20 @@ export default {
             Javascript:'javascript'
         }
     },
-    created(){
-        this.http.get("content?_sort=id&_order=desc&kind=vue")
-            .then(res => this.$store.commit("setContentvue",res.data)),
-        this.http.get("content?_sort=id&_order=desc&kind=html")
-            .then(res => this.$store.commit("setContenthtml",res.data)),
-        this.http.get("content?_sort=id&_order=desc&kind=css")
-            .then(res => this.$store.commit("setContentcss",res.data)),
-        this.http.get("content?_sort=id&_order=desc&kind=javascript")
-            .then(res => this.$store.commit("setContentjavascript",res.data))
+    beforeCreate(){
+        // this.http.get("content?_sort=id&_order=desc&kind=vue")
+        //     .then(res => this.$store.commit("setContentvue",res.data)),
+        // this.http.get("content?_sort=id&_order=desc&kind=html")
+        //     .then(res => this.$store.commit("setContenthtml",res.data)),
+        // this.http.get("content?_sort=id&_order=desc&kind=css")
+        //     .then(res => this.$store.commit("setContentcss",res.data)),
+        // this.http.get("content?_sort=id&_order=desc&kind=javascript")
+        //     .then(res => this.$store.commit("setContentjavascript",res.data))
     },
     computed:{
+        getContents(){
+            return this.$store.getters.getContent
+        },
         getVue(){
             return this.$store.getters.getContentvue
         },

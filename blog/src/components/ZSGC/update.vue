@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group">
                         <label>Detailed</label>
-                        <textarea class="form-control" style="resize:none" rows="10" v-model="message.Detailed"></textarea>
+                        <mavonEditor v-model="message.Detailed"/>
                     </div>
                     <button type="button" @click="updateAll" class="btn btn-primary">确认</button>
                 </div>
@@ -24,12 +24,17 @@
 </template>
 
 <script>
+import { mavonEditor } from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 export default {
     data(){
         return{
             message:{},
             id:''
         }
+    },
+    components:{
+        mavonEditor
     },
     created(){
         let routerParams = this.$route.query.id
@@ -81,5 +86,7 @@ export default {
 </script>
 
 <style scoped>
-
+.v-note-wrapper{
+    min-height: 600px;
+}
 </style>
