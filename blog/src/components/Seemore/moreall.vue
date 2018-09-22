@@ -53,7 +53,7 @@ export default {
 // beforeDestroy（销毁前）,
 
 // destroyed（销毁后）
-    beforeMount(){
+    updated(){
         this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
             .then(res => this.$store.commit("setContent",res.data))
     }

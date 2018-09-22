@@ -10,7 +10,7 @@
                 <div class="navbar-nav">
                     <router-link :to="{name:'firstLink'}" class="nav-item nav-link active" href="#">首页 <span class="sr-only">(current)</span></router-link>
                     <a class="nav-item nav-link" href="#">学习圣地</a>
-                    <a class="nav-item nav-link" href="#">我和她</a>
+                    <a class="nav-item nav-link" href="#">小夫妻</a>
                     <span class=" navbar-text" href="#">某些链接需要登录方可查看</span>
                     
                 </div>
