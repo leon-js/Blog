@@ -1,15 +1,14 @@
 <template>
-    <div>
+    <div class="container">
         <form>
             <input type="text" v-model="content.title">
-            <textarea type="text" style="resize:none" v-model="content.Detailed" wrap="hard" cols="20"></textarea>
             <!-- <label>下拉1组：</label>
             <select v-model="content.kind">
             <option disabled >--请选择--</option>
             <option :value="kind.kind" v-for="kind in getKinds" :key="kind.index">{{kind.kind}}</option>
             </select> -->
             {{kind}}
-            <mavonEditor v-model="value"/>
+            <mavonEditor v-model="content.Detailed"/>
             <button type="button" @click="addContent">提交</button>
         </form>
     </div>
@@ -17,12 +16,12 @@
 
 <script>
 import { mavonEditor } from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 export default {
     data(){
         return{
             content:{},
             kind:'',
-            value:''
         }
     },
     components:{
@@ -94,5 +93,7 @@ export default {
 </script>
 
 <style scoped>
-
+.v-note-wrapper{
+    min-height: 600px;
+}
 </style>
