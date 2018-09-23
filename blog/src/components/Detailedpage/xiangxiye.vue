@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div  v-for="de in getDetailed" :key="de.index">
+                <div  v-for="de in xiangxi" :key="de.index">
                 <h1>12</h1>
                 <h2>{{msg}}</h2>
                 <h1>{{de.title}}</h1>
@@ -27,7 +27,8 @@ export default {
     data(){
         return{
             msg:'',
-            defaultData:'preview'
+            defaultData:'preview',
+            xiangxi:{}
         }
     },
     components:{
@@ -37,13 +38,14 @@ export default {
         let routerParams = this.$route.query.id
         this.msg = routerParams
         this.http.get("content?id="+routerParams)
-            .then(res => this.$store.commit("setXiangxi",res.data))
-        this.getDetailed
+            .then(res => {
+                this.xiangxi = res.data
+                console.log(this.xiangxi)
+            })
+        
     },
     computed:{
-        getDetailed(){
-            return this.$store.getters.getXiangxi
-        }
+        
     },
     methods:{
         shanchu(){
