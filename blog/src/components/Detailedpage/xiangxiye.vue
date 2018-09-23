@@ -44,9 +44,6 @@ export default {
             })
         
     },
-    computed:{
-        
-    },
     methods:{
         shanchu(){
             if(confirm("确认删除吗，将无法撤回") == true){
