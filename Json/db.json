@@ -290,14 +290,14 @@
     },
     {
       "title": "你好",
-      "Detailed": "你好",
+      "Detailed": "你好\n*大家好*\n++你们好啊++",
       "time": "2018-09-22 12:4:17",
       "kind": "vue",
       "id": 41
     },
     {
       "title": "嘿嘿",
-      "Detailed": "```python\nprint(\"hello world\")\nprint(\"hello world\")\n```",
+      "Detailed": "```python\nprint(\"hello world\")\nprint(\"hello world\")\n```\n**这里是Python**",
       "time": "2018-09-22 12:4:26",
       "kind": "vue",
       "id": 42
