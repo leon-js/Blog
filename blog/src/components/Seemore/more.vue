@@ -31,7 +31,7 @@
                     <p style="text-align:right">{{item.time}}</p>
                 </div>
                 <div class="col-md-6">
-                    <p><router-link :to="{name:'detailedLink',query:{id:item.id}}" class="btn btn-secondary" href="#" role="button">查看详细 &raquo;</router-link></p>
+                    <p><router-link v-bind:to="'/detailed/'+item.id" class="btn btn-secondary" href="#" role="button">查看详细 &raquo;</router-link></p>
                 </div>
             </div>
           </div>
@@ -150,15 +150,9 @@ export default {
             Javascript:'javascript'
         }
     },
-    beforeCreate(){
-        // this.http.get("content?_sort=id&_order=desc&kind=vue")
-        //     .then(res => this.$store.commit("setContentvue",res.data)),
-        // this.http.get("content?_sort=id&_order=desc&kind=html")
-        //     .then(res => this.$store.commit("setContenthtml",res.data)),
-        // this.http.get("content?_sort=id&_order=desc&kind=css")
-        //     .then(res => this.$store.commit("setContentcss",res.data)),
-        // this.http.get("content?_sort=id&_order=desc&kind=javascript")
-        //     .then(res => this.$store.commit("setContentjavascript",res.data))
+    created(){
+         this.http.get("content?_sort=id&_order=desc")
+            .then(res => this.$store.commit("setContent",res.data))
     },
     computed:{
         getContents(){

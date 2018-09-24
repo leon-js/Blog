@@ -283,21 +283,21 @@
     },
     {
       "title": "嘻嘻",
-      "Detailed": "嘻嘻我是vue",
+      "Detailed": "嘻嘻我是vue\n```python\nprint(\"hello world\")\nprint(\"hello world\")\n```\n**这里是Python**",
       "time": "2018-09-22 12:3:03",
       "kind": "vue",
       "id": 40
     },
     {
       "title": "你好",
-      "Detailed": "你好\n*大家好*\n++你们好啊++",
+      "Detailed": "你好\n*大家好*\n++你们好啊++\n```python\nprint(\"hello world\")\nprint(\"hello world\")\n```\n**这里是Python**",
       "time": "2018-09-22 12:4:17",
       "kind": "vue",
       "id": 41
     },
     {
       "title": "嘿嘿",
-      "Detailed": "```python\nprint(\"hello world\")\nprint(\"hello world\")\n```\n**这里是Python**",
+      "Detailed": "```python\nprint(\"hello world\")\nprint(\"Hello World\")\nprint(\"hello world\")\n```\n**这里是Python**",
       "time": "2018-09-22 12:4:26",
       "kind": "vue",
       "id": 42

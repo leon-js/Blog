@@ -66,7 +66,7 @@ export default {
                 this.http.put("content/"+this.id,updateMessage)
                     .then(res => {
                         console.log(res.data)
-                        this.$router.push({path:'/detailed?id='+this.id})
+                        this.$router.go(-1)
                     })
             }
             e.preventDefault();

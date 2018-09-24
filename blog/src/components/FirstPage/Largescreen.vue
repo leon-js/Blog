@@ -39,7 +39,7 @@
                     <p style="text-align:right">{{item.time}}</p>
                 </div>
                 <div class="col-md-6">
-                    <p><router-link :to="{name:'detailedLink',query:{id:item.id}}" class="btn btn-secondary" href="#" role="button">查看详细 &raquo;</router-link></p>
+                    <p><router-link v-bind:to="'/detailed/'+item.id" class="btn btn-secondary" href="#" role="button">查看详细 &raquo;</router-link></p>
                 </div>
             </div>
           </div>

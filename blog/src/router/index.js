@@ -14,6 +14,7 @@ Vue.use(Router)
 
 export default new Router({
   mode:"history",
+  base:__dirname,
   // scrollBehavior (to, from, savedPosition) {
   //   return{selector:".zhiding"}
   //   if(savedPosition){
@@ -29,7 +30,7 @@ export default new Router({
       component:Firstpage
     },
     {
-      path:'/detailed',
+      path:'/detailed/:id',
       name:'detailedLink',
       component:xiangxiye
     },
