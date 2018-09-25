@@ -3,11 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                
                 <h1>12</h1>
-                <h2>{{msg}}</h2>
                 <h1>{{xiangxi.title}}</h1>
-                
                 <mavonEditor :ishljs="true" :scrollStyle="true" :editable="false" :toolbarsFlag="false" :subfield="false" :defaultOpen="defaultData" v-model="xiangxi.Detailed"/>
                 <h1>{{xiangxi .time}}</h1>
                 
@@ -38,14 +35,6 @@ export default {
     },
     created(){
         this.fetchXiangxi(this.$route.params.id)
-        // let routerParams = this.$route.query.id
-        // this.msg = routerParams
-        // this.http.get("content?id="+routerParams)
-        //     .then(res => {
-        //         this.xiangxi = res.data
-        //         console.log(this.xiangxi)
-        //     })
-        
     },
     methods:{
         fetchXiangxi(id){
