@@ -35,12 +35,16 @@ export default {
             password:""
         }
     },
-    beforeMount(){
-        sessionStorage.setItem("isLogin","0")
-    },
-    updated(){
+    beforeRouteEnter:(to,from,next) => {
         sessionStorage.clear()
+        next(vm => vm.$store.dispatch("setUser",null))
     },
+    // beforeMount(){
+    //     sessionStorage.setItem("isLogin","0")
+    // },
+    // updated(){
+    //     sessionStorage.clear()
+    // },
     // beforeDestroy(){
     //     this.$router.go(0)
     // },

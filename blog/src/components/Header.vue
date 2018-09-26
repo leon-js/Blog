@@ -28,14 +28,38 @@
  <script>
  export default {
      computed:{
-         currenuser(){
-             if(this.$store.state.user.isLogin){
+        //  currenuser(){
+        //      if(this.$store.state.user.isLogin){
+        //          return sessionStorage.getItem("name")
+        //      }
+        //  },
+        //  isLogin(){
+        //      return this.$store.state.user.isLogin
+        //  }
+
+
+        currenuser(){
+             if(sessionStorage.getItem("isLogin") == "1"){
                  return sessionStorage.getItem("name")
+             }else{
+
              }
          },
          isLogin(){
-             return this.$store.state.user.isLogin
+             if(sessionStorage.getItem("isLogin") == "1"){
+                 this.$store.commit('changeLogin', true)
+                 return this.$store.state.user.isLogin
+             }else{
+                 this.$store.commit('changeLogin', false)
+                 return this.$store.state.user.isLogin
+             }
+             
          }
+
+
+
+
+
         //  currenuser(){
         //      if(sessionStorage.getItem("isLogin") == "0"){
         //          console.log("未登录")
