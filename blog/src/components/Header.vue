@@ -29,67 +29,37 @@
  export default {
      computed:{
          currenuser(){
-             console.log(sessionStorage.getItem("isLogin"))
-             if(sessionStorage.getItem("isLogin") == "1"){
+             if(sessionStorage.getItem("isLogin") == "0"){
+                 console.log("未登录")
+             }else if(sessionStorage.getItem("isLogin") == null){
+                 console.log("未登录")
+             }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
+                 console.log(sessionStorage.getItem("name"))
                  return sessionStorage.getItem("name")
              }
          },
          isLogin(){
-             var f = "false"
-             var t = "true"
-             var result = sessionStorage.getItem("isLogin") === "true"
-             if(result){
-                return this.$store.state.user.isLogin
+             if(sessionStorage.getItem("isLogin") == "0"){
+                 console.log("未登录")
+                 return this.$store.getters.isLogin
+             }else if(sessionStorage.getItem("isLogin") == null){
+                 console.log("未登录")
+             }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
+                 console.log(this.$store.getters.noLogin)
+                 return this.$store.getters.noLogin
+             }else{
+                 console.log("未登录")
              }
-            
          }
-        //  isLogin(){
-        //      if(sessionStorage.getItem("isLogin") == "0"){
-        //          console.log("未登录")
-        //          return this.$store.getters.isLogin
-        //      }else if(sessionStorage.getItem("isLogin") == null){
-        //          console.log("未登录")
-        //      }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
-        //          console.log(this.$store.getters.noLogin)
-        //          return this.$store.state.user.isLogin
-        //      }else{
-        //          console.log("未登录")
-        //      }},
-
-        //  currenuser(){
-        //      if(sessionStorage.getItem("isLogin") == "0"){
-        //          console.log("未登录")
-        //      }else if(sessionStorage.getItem("isLogin") == null){
-        //          console.log("未登录")
-        //      }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
-        //          console.log(sessionStorage.getItem("name"))
-        //          return sessionStorage.getItem("name")
-        //      }else{
-        //          console.log("未登录")
-        //      }
-        //  },
-        //  isLogin(){
-        //      if(sessionStorage.getItem("isLogin") == "0"){
-        //          console.log("未登录")
-        //          return this.$store.getters.isLogin
-        //      }else if(sessionStorage.getItem("isLogin") == null){
-        //          console.log("未登录")
-        //      }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
-        //          console.log(this.$store.getters.noLogin)
-        //          return this.$store.getters.noLogin
-        //      }else{
-        //          console.log("未登录")
-        //      }
-        //  }
      },
      methods:{
          shachusession(){
              sessionStorage.clear()
          }
      },
-     created(){
-        // this.currenuser
-        // this.isLogin
+     beforeMount(){
+        this.currenuser
+        this.isLogin
     },
  }
  </script>
