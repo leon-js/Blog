@@ -5,17 +5,18 @@
         <div class="titlelogin">
             <h2>Please sign in</h2>
         </div>
-        <form>
+        <form @submit.prevent="signin">
         <div class="inputlogin">
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input v-model="email" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input v-model="email" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
             <input v-model="password" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="password" id="inputPassword" class="form-control" placeholder="Password" required>   
             <div class="checkbox mb-3">
             <label class="inputtext">
-                <input type="checkbox" value="remember-me"> 电脑屏幕大的话，贞子更好爬出来
+                电脑屏幕大的话，贞子更好爬出来
             </label>
-            <button class="btn btn-lg btn-primary btn-block buttonlogin" type="submit" @click="signin">Sign in</button>
+            <!-- <button class="btn btn-lg btn-primary btn-block buttonlogin" type="submit" @click="signin">Sign in</button> -->
+            <button type="submit" class="btn btn-block btn-success">Sign in</button>
             </div>
         </div>
         </form>
@@ -35,15 +36,20 @@ export default {
             password:""
         }
     },
-    beforeMount(){
-        sessionStorage.setItem("isLogin","0")
-    },
-    updated(){
+    // 组件内守卫
+    beforeRouteEnter:(to,from,next) => {
         sessionStorage.clear()
+        next(vm => vm.$store.dispatch("setUser",null))
     },
-    beforeDestroy(){
-        this.$router.go(0)
-    },
+    // beforeMount(){
+    //     sessionStorage.setItem("isLogin","0")
+    // },
+    // updated(){
+    //     sessionStorage.clear()
+    // },
+    // beforeDestroy(){
+    //     this.$router.go(0)
+    // },
     methods:{
         signin(){
             this.http.get('users')
