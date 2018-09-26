@@ -15,9 +15,9 @@
                     
                 </div>
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link" v-show="statushow">{{currenuser}}</a>
-                    <router-link @click="shachusession" :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="statushow">Sign out</router-link>
-                    <router-link :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="!statushow">Log in</router-link>
+                    <a class="nav-item nav-link" v-show="isLogin">{{currenuser}}</a>
+                    <router-link @click="shachusession" :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="isLogin">Sign out</router-link>
+                    <router-link :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="!isLogin">Log in</router-link>
                 </div>
             </div>
             </nav>
@@ -27,14 +27,13 @@
  
  <script>
  export default {
-     data(){
-         return{
-             statushow:false
-         }
-     },
-     methods:{
+     computed:{
          currenuser(){
-             if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
+             if(sessionStorage.getItem("isLogin") == "0"){
+                 console.log("未登录")
+             }else if(sessionStorage.getItem("isLogin") == null){
+                 console.log("未登录")
+             }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
                  console.log(sessionStorage.getItem("name"))
                  return sessionStorage.getItem("name")
              }else{
@@ -42,29 +41,28 @@
              }
          },
          isLogin(){
-            if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
-                 Vue.set(data,'statushow',true)
-                 console.log(this.statushow)
+             if(sessionStorage.getItem("isLogin") == "0"){
+                 console.log("未登录")
+                 return this.$store.getters.isLogin
+             }else if(sessionStorage.getItem("isLogin") == null){
+                 console.log("未登录")
+             }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
+                 console.log(this.$store.getters.noLogin)
+                 return this.$store.getters.noLogin
              }else{
                  console.log("未登录")
-                 Vue.set(data,'statushow',false)
-                 console.log(this.statushow)
              }
-         },
-         shachusession(){
-              sessionStorage.clear()
-          }
+         }
      },
-    //  methods:{
-    //      shachusession(){
-    //          sessionStorage.clear()
-    //      }
-    //  },
-     
-    //  updated(){
-    //     this.currenuser
-    //     this.isLogin
-    // },
+     methods:{
+         shachusession(){
+             sessionStorage.clear()
+         }
+     },
+     beforeMount(){
+        this.currenuser
+        this.isLogin
+    },
  }
  </script>
 
