@@ -62,7 +62,7 @@ export default {
                         this.$store.dispatch("setUser",result[0].username)
                         this.$store.commit("changeLogin",true)
                         alert("登录成功")
-                        sessionStorage.setItem("isLogin",this.$store.getters.isLogin)
+                        sessionStorage.setItem("isLogin","1")
                         sessionStorage.setItem("name",this.$store.getters.getcurrenuser)
                         sessionStorage.setItem("usersudo",this.$store.getters.getusersudo)
                         this.$router.push({name:"firstLink"})
