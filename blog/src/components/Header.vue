@@ -29,13 +29,33 @@
  export default {
      computed:{
          currenuser(){
-             if(this.$store.state.user.isLogin){
+             console.log(sessionStorage.getItem("isLogin"))
+             if(sessionStorage.getItem("isLogin") == "1"){
                  return sessionStorage.getItem("name")
              }
          },
          isLogin(){
-             return this.$store.state.user.isLogin
+             var f = "false"
+             var t = "true"
+             var result = sessionStorage.getItem("isLogin") === "true"
+             if(result){
+                return this.$store.state.user.isLogin
+             }
+            
          }
+        //  isLogin(){
+        //      if(sessionStorage.getItem("isLogin") == "0"){
+        //          console.log("未登录")
+        //          return this.$store.getters.isLogin
+        //      }else if(sessionStorage.getItem("isLogin") == null){
+        //          console.log("未登录")
+        //      }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
+        //          console.log(this.$store.getters.noLogin)
+        //          return this.$store.state.user.isLogin
+        //      }else{
+        //          console.log("未登录")
+        //      }},
+
         //  currenuser(){
         //      if(sessionStorage.getItem("isLogin") == "0"){
         //          console.log("未登录")
@@ -51,12 +71,12 @@
         //  isLogin(){
         //      if(sessionStorage.getItem("isLogin") == "0"){
         //          console.log("未登录")
-        //          return false
+        //          return this.$store.getters.isLogin
         //      }else if(sessionStorage.getItem("isLogin") == null){
         //          console.log("未登录")
         //      }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
         //          console.log(this.$store.getters.noLogin)
-        //          return true
+        //          return this.$store.getters.noLogin
         //      }else{
         //          console.log("未登录")
         //      }
