@@ -16,18 +16,18 @@ const getters = {
 }
 
 const mutations = {
-    //添加改变登陆状态
-    changeLogin(state,status){
-        state.isLogin = status
-    },
     //改变属性状态
     userStatus(state,user){
         if(user){
             state.currenuser = user,
             state.isLogin = true
+            // sessionStorage.setItem("username",user),
+            // sessionStorage.setItem("isLogin",true)
         }else if(user == null){
             state.currenuser = null,
             state.isLogin = false
+            // sessionStorage.setItem("username",null),
+            // sessionStorage.setItem("isLogin",false)
         }
     },
     userSudo(state,user){
