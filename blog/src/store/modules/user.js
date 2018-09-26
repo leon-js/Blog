@@ -16,6 +16,9 @@ const getters = {
 }
 
 const mutations = {
+    changeLogin(state,status){
+        state.isLogin = status
+    },
     //改变属性状态
     userStatus(state,user){
         if(user){

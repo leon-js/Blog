@@ -20,6 +20,9 @@ export default {
     "app-header":Header,
     "app-footer":Footer
   },
+  created(){
+    console.log(sessionStorage)
+  },
   updated(){
     console.log(sessionStorage)
   }

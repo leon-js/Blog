@@ -14,11 +14,11 @@ export default {
     beforeMount(){
 
     },
-    beforeDestroy(){
-        if(sessionStorage.getItem("isLogin") == "0"){
-            this.$router.go(0)
-        }
-    },
+    // beforeDestroy(){
+    //     if(sessionStorage.getItem("isLogin") == "0"){
+    //         this.$router.go(0)
+    //     }
+    // },
     methods:{
        
     }

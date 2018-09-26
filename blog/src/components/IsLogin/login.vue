@@ -41,9 +41,9 @@ export default {
     updated(){
         sessionStorage.clear()
     },
-    beforeDestroy(){
-        this.$router.go(0)
-    },
+    // beforeDestroy(){
+    //     this.$router.go(0)
+    // },
     methods:{
         signin(){
             this.http.get('users')
@@ -60,6 +60,7 @@ export default {
                     if(result != null && result.length > 0){
                         this.$store.dispatch("setUsersudo",result[0].sudo)
                         this.$store.dispatch("setUser",result[0].username)
+                        this.$store.commit('changeLogin', true)
                         alert("登录成功")
                         sessionStorage.setItem("isLogin","1")
                         sessionStorage.setItem("name",this.$store.getters.getcurrenuser)
