@@ -43,12 +43,12 @@
          isLogin(){
              if(sessionStorage.getItem("isLogin") == "0"){
                  console.log("未登录")
-                 return this.$store.getters.isLogin
+                 return false
              }else if(sessionStorage.getItem("isLogin") == null){
                  console.log("未登录")
              }else if(sessionStorage.getItem("isLogin") == "1" || sessionStorage.getItem("isLogin") == "3"){
                  console.log(this.$store.getters.noLogin)
-                 return this.$store.getters.noLogin
+                 return true
              }else{
                  console.log("未登录")
              }
@@ -59,7 +59,7 @@
              sessionStorage.clear()
          }
      },
-     beforeMount(){
+     created(){
         this.currenuser
         this.isLogin
     },

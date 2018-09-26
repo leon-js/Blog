@@ -5,7 +5,7 @@
             <div class="col-md-8">
                 
                 <h1>12</h1>
-                <h2>{{msg}}</h2>
+                <h2 v-cloak>{{msg}}</h2>
                 <h1>{{xiangxi.title}}</h1>
                 
                 <mavonEditor :ishljs="true" :scrollStyle="true" :editable="false" :toolbarsFlag="false" :subfield="false" :defaultOpen="defaultData" v-model="xiangxi.Detailed"/>
@@ -95,7 +95,7 @@ export default {
     flex: 0 0 100%;
 } */
 [v-cloak]{
-    display: none !important;
+    display: none;
 }
 </style>
 
