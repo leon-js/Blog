@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group">
                         <label>Detailed</label>
-                        <mavonEditor v-model="message.Detailed"/>
+                        <mavonEditor :imageFilter="true" v-model="message.Detailed"/>
                     </div>
                     <button type="button" @click="updateAll" class="btn btn-primary">确认</button>
                 </div>

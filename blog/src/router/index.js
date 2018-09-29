@@ -9,6 +9,7 @@ import add from '../components/ZSGC/add'
 import update from '../components/ZSGC/update'
 import deleted from '../components/ZSGC/deleted'
 import transfer from '../components/transfer'
+import Blog from '../components/Blog'
 
 Vue.use(Router)
 
@@ -68,6 +69,11 @@ export default new Router({
       path:'deleted',
       name:'deletedLink',
       component:deleted
+    },
+    {
+      path:'Blog',
+      name:'BlogLink',
+      component:Blog
     },
     {path:'*',redirect:'/'}
   ]
