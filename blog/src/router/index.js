@@ -14,8 +14,9 @@ import Blog from '../components/Blog'
 Vue.use(Router)
 
 export default new Router({
-  mode:"history",
+  // mode:"history",
   base:__dirname,
+  
   // scrollBehavior (to, from, savedPosition) {
   //   return{selector:".zhiding"}
   //   if(savedPosition){

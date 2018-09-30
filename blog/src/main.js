@@ -7,7 +7,7 @@ import axios from 'axios'
 import {store} from './store/store'
 
 Vue.config.productionTip = false
-axios.defaults.baseURL = "http://localhost:3000/"
+axios.defaults.baseURL = "http://139.199.206.151:3000/"
 Vue.use(axios)
 Vue.prototype.http = axios
 
