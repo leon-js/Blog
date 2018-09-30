@@ -1,24 +1,11 @@
-// server/index.js
 const path = require('path');
 const express = require('express');
-const router = express.Router();
 const app = express();
 
-app.use('/add', router);
-app.use('/del', router);
-
-router.get('/getArticle1', (req, res, next) => {
-  api.getArticle(req, res, next);
-})
-router.get('/getArticle2', (req, res, next) => {
-  api.getArticle(req, res, next);
-})
-
-router.get('/delArticle1', (req, res, next) => {
-  api.getArticle(req, res, next);
-})
-router.get('/delArticle2', (req, res, next) => {
-  api.getArticle(req, res, next);
+app.get('/api/getArticle', (req, res, next) => {
+  res.json({
+      data: '后台返回结果 getArticle'
+    })
 })
 
 // 监听端口
