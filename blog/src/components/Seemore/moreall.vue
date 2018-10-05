@@ -72,6 +72,12 @@ export default {
         //         console.log('res',res.data);
         //         this.$store.commit("setContent",res.data)
         //     })
+        this.http.get('/api/getContentAllforKind',{
+            params: {kind:this.kind}
+        })
+            .then( (res) => {
+                this.$store.commit("setContent",res.data)
+            })
     }
 }
 </script>
