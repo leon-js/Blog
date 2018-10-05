@@ -58,8 +58,11 @@ export default {
         }
     },
     created(){
-        this.http.get("content?_sort=id&_order=desc")
-            .then(res => this.$store.commit("setContent",res.data))
+        this.http.get('/api/getContentAll')
+            .then( (res) => {
+                console.log('res',res.data);
+                this.$store.commit("setContent",res.data)
+            })
     },
     computed:{
         getContents(){

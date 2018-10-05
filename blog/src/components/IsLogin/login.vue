@@ -8,7 +8,7 @@
         <form>
         <div class="inputlogin">
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input v-model="email" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input v-model="email" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
             <input v-model="password" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="password" id="inputPassword" class="form-control" placeholder="Password" required>   
             <div class="checkbox mb-3">
@@ -49,9 +49,15 @@ export default {
     //     this.$router.go(0)
     // },
     methods:{
+        // this.http.get('/api/getContentAll')
+        //     .then( (res) => {
+        //         console.log('res',res.data);
+        //         this.$store.commit("setContent",res.data)
+        //     })
         signin(){
-            this.http.get('users')
+            this.http.get('/api/getUsers')
                 .then(res => {
+                    console.log('res',res.data)
                     const data = res.data
                     const users = []
                     for(let key in data){
@@ -59,7 +65,7 @@ export default {
                         users.push(user)
                     }
                     let result = users.filter((users) => {
-                    return users.useraccount === this.email && users.userpassword === this.password
+                    return users.AccountNumber === this.email && users.password === this.password
                     })
                     if(result != null && result.length > 0){
                         this.$store.dispatch("setUsersudo",result[0].sudo)
