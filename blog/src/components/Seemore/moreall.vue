@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-md-8">
                 <div v-for="vue in getAllVue" :key="vue.index">
-                    <h1><router-link :to="{name:'detailedLink',query:{id:vue.id}}"  href="#" >{{vue.title}}</router-link></h1>
+                    <!-- <h1><router-link :to="{name:'detailedLink',query:{id:vue.id}}"  href="#" >{{vue.title}}</router-link></h1> -->
+                    <h1><router-link v-bind:to="'/detailed/'+vue.id" href="#">{{vue.title}}</router-link></h1>
                     <h2>{{vue.Detailed}}</h2>
                     <h3>{{vue.time}}</h3>
                 </div>
@@ -23,10 +24,18 @@ export default {
         }
     },
     created(){
-        let routerParams = this.$route.query.kind
+        let routerParams = this.$route.query.id
         this.kind = routerParams
-        this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
-            .then(res => this.$store.commit("setContent",res.data))
+        console.log(this.kind)
+        // this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
+        //     .then(res => this.$store.commit("setContent",res.data))
+        this.http.get('/api/getContentAllforKind',{
+            params: {kind:this.kind}
+        })
+            .then( (res) => {
+                console.log('res',res.data);
+                this.$store.commit("setContent",res.data)
+            })
     },
     computed:{
         getAllVue(){
@@ -54,8 +63,15 @@ export default {
 
 // destroyed（销毁后）
     updated(){
-        this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
-            .then(res => this.$store.commit("setContent",res.data))
+        // this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
+        //     .then(res => this.$store.commit("setContent",res.data))
+        // this.http.get('/api/getContentAllforKind',{
+        //     params: {id:this.kind}
+        // })
+        //     .then( (res) => {
+        //         console.log('res',res.data);
+        //         this.$store.commit("setContent",res.data)
+        //     })
     }
 }
 </script>

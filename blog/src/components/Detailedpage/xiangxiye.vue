@@ -9,7 +9,7 @@
                 <h1>{{xiangxi.title}}</h1>
                 
                 <mavonEditor :ishljs="true" :scrollStyle="true" :editable="false" :toolbarsFlag="false" :subfield="false" :defaultOpen="defaultData" v-model="xiangxi.Detailed"/>
-                <h1>{{xiangxi .time}}</h1>
+                <h1>{{xiangxi.time}}</h1>
                 
             </div>
             <div class="col-md-4">
@@ -49,11 +49,12 @@ export default {
     },
     methods:{
         fetchXiangxi(id){
-            this.http.get("content/"+id)
-                .then(res => {
-                    console.log(res.data)
-                    this.xiangxi = res.data
-                })
+            this.http.get('/api/getValue', {
+                params: {id: id}
+            }).then( (res) => {
+                console.log('res', res.data);
+                this.xiangxi = res.data[0];
+            })
         },
         shanchu(){
             if(confirm("确认删除吗，将无法撤回") == true){

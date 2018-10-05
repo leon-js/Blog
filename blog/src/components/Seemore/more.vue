@@ -15,10 +15,12 @@
         </div>
     </div>
     <div class="container">
-        <router-link :to="{name:'allmorelearningLink',query:{kind:Vue}}">Vue</router-link>
-        <router-link :to="{name:'allmorelearningLink',query:{kind:Html}}">Html</router-link>
-        <router-link :to="{name:'allmorelearningLink',query:{kind:Javascript}}">Javascript</router-link>
-        <router-link :to="{name:'allmorelearningLink',query:{kind:Css}}">Css</router-link>
+        <router-link :to="{name:'allmorelearningLink',query:{id:3}}">Vue</router-link>
+        <router-link :to="{name:'allmorelearningLink',query:{id:2}}">Html</router-link>
+        <router-link :to="{name:'allmorelearningLink',query:{id:4}}">Javascript</router-link>
+        <router-link :to="{name:'allmorelearningLink',query:{id:1}}">Css</router-link>
+        <router-link :to="{name:'allmorelearningLink',query:{id:5}}">Ubuntu</router-link>
+
     </div>
     <div class="container">
         <!-- Example row of columns -->
@@ -38,104 +40,6 @@
         </div>
         <hr>
       </div>
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header bg-dark text-white">
-                        <div class="row">
-                            <div class="col-md-8">Vue</div>
-                            <div class="col-md-4 ml-auto text-right"><router-link v-bind:Vue="Vue" :to="{name:'allmorelearningLink',query:{kind:Vue}}">All</router-link></div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card" v-for="(vue,index) in getVue" :key="vue.index" v-if="index <= 2">
-                            <div class="card-header">
-                                <h3><router-link :to="{name:'detailedLink',query:{id:vue.id}}"  href="#" >{{vue.title}}</router-link></h3>
-                            </div>
-                            <div class="card-body" style="text-indent:2em;"><span class="p1">{{vue.Detailed}}</span></div>
-                            <div class="card-footer">{{vue.time}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header bg-dark text-white">
-                        <div class="row">
-                            <div class="col-md-8">Html</div>
-                            <div class="col-md-4 ml-auto text-right"><router-link v-bind:Html="Html" :to="{name:'allmorelearningLink',query:{kind:Html}}">All</router-link></div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card" v-for="(html,index) in getHtml" :key="html.index" v-if="index <= 2">
-                            <div class="card-header">
-                                <h3><router-link :to="{name:'detailedLink',query:{id:html.id}}"  href="#" >{{html.title}}</router-link></h3>
-                            </div>
-                            <div class="card-body" style="text-indent:2em;"><span class="p1">{{html.Detailed}}</span></div>
-                            <div class="card-footer">{{html.time}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header bg-dark text-white">
-                        <div class="row">
-                            <div class="col-md-8">Css</div>
-                            <div class="col-md-4 ml-auto text-right"><router-link v-bind:Css="Css" :to="{name:'allmorelearningLink',query:{kind:Css}}">All</router-link></div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card" v-for="(css,index) in getCss" :key="css.index" v-if="index <= 2">
-                            <div class="card-header">
-                                <h3><router-link :to="{name:'detailedLink',query:{id:css.id}}"  href="#" >{{css.title}}</router-link></h3>
-                            </div>
-                            <div class="card-body" style="text-indent:2em;"><span class="p1">{{css.Detailed}}</span></div>
-                            <div class="card-footer">{{css.time}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header bg-dark text-white">
-                        <div class="row">
-                            <div class="col-md-8">Javascript</div>
-                            <div class="col-md-4 ml-auto text-right"><router-link v-bind:Javascript="Javascript" :to="{name:'allmorelearningLink',query:{kind:Javascript}}">All</router-link></div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card" v-for="(javascript,index) in getJavascript" :key="javascript.index" v-if="index <= 2">
-                            <div class="card-header">
-                                <h3><router-link :to="{name:'detailedLink',query:{id:javascript.id}}"  href="#" >{{javascript.title}}</router-link></h3>
-                            </div>
-                            <div class="card-body" style="text-indent:2em;"><span class="p1">{{javascript.Detailed}}</span></div>
-                            <div class="card-footer">{{javascript.time}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                
-            </div>
-        </div>
-    </div> -->
 </div>
    
 </template>
@@ -144,32 +48,24 @@
 export default {
     data(){
         return{
-            Vue:'vue',
-            Html:'html',
-            Css:'css',
-            Javascript:'javascript'
+            Vue:'\'vue\'',
+            Html:'\'html\'',
+            Css:'\'css\'',
+            Javascript:'\'javascript\'',
+            Ubuntu:'\'ubuntu\''
         }
     },
     created(){
-         this.http.get("content?_sort=id&_order=desc")
-            .then(res => this.$store.commit("setContent",res.data))
+         this.http.get('/api/getContentAll')
+            .then( (res) => {
+                console.log('res',res.data);
+                this.$store.commit("setContent",res.data)
+            })
     },
     computed:{
         getContents(){
             return this.$store.getters.getContent
         },
-        getVue(){
-            return this.$store.getters.getContentvue
-        },
-        getHtml(){
-            return this.$store.getters.getContenthtml
-        },
-        getCss(){
-            return this.$store.getters.getContentcss
-        },
-        getJavascript(){
-            return this.$store.getters.getContentjavascript
-        }
     },
     beforeRouteEnter:(to,from,next) => {
         var a = sessionStorage.getItem("isLogin")
