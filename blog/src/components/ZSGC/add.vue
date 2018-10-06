@@ -30,8 +30,8 @@ export default {
     created(){
         let routerParams = this.$route.query.kind
         this.kind = routerParams
-        this.http.get("kinds")
-            .then(res => this.$store.commit("setKinds",res.data))
+        // this.http.get("kinds")
+        //     .then(res => this.$store.commit("setKinds",res.data))
     },
     computed:{
         getKinds(){
@@ -84,7 +84,8 @@ export default {
                 this.http.post("content",newContent)
                     .then(res =>console.log(newContent))
                 alert("添加成功")
-                this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=id&_order=asc"})
+                // this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=id&_order=asc"})
+                this.$router.go(-1)
                 }
             e.preventDefault()
         }
