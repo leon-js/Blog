@@ -24,7 +24,7 @@ export default {
         this.inpContent = res.data[0].title;
       })
     },
-    setValue() {
+    setUpdate() {
       // axios.post('/', {})
       this.http.post('/api/setValue', {
         id: 1, name: this.inpContent

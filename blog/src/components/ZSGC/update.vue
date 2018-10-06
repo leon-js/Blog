@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group">
                         <label>Detailed</label>
-                        <mavonEditor :imageFilter="true" v-model="message.Detailed"/>
+                        <mavonEditor v-model="message.Detailed"/>
                     </div>
                     <button type="button" @click="updateAll" class="btn btn-primary">确认</button>
                 </div>
@@ -43,8 +43,15 @@ export default {
         // this.http.get("content?id="+routerParams)
         //     .then(res => this.$store.commit("setContent",res.data))
         // this.message = this.$store.state
-        this.http.get("content?id="+routerParams)
-            .then(res => this.message = res.data[0])
+
+        // this.http.get("content?id="+routerParams)
+        //     .then(res => this.message = res.data[0])
+        this.http.get('/api/getValue', {
+                params: {id: this.id}
+            }).then( (res) => {
+                console.log('res', res.data);
+                this.message = res.data[0];
+            })
         console.log(this.message)
     },
     methods:{
@@ -63,11 +70,23 @@ export default {
                     kind:this.message.kind,
                     id:this.message.id
                 }
-                this.http.put("content/"+this.id,updateMessage)
-                    .then(res => {
-                        console.log(res.data)
-                        this.$router.go(-1)
-                    })
+                // this.http.put("content/"+this.id,updateMessage)
+                //     .then(res => {
+                //         console.log(res.data)
+                //         this.$router.go(-1)
+                //     })
+
+                 // this.http.post('/api/setValue', {
+                    //     id: 1, name: this.inpContent
+                    // }).then( (res) => {
+                    //     console.log('res', res);
+                    // })
+                this.http.post('/api/setUpdate',{
+                    id:this.message.id,title:this.message.title,detailed:this.message.Detailed
+                }).then((res)=>{
+                    console.log('res',res)
+                    this.$router.go(-1)
+                })
             }
             e.preventDefault();
         }
