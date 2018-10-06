@@ -5,7 +5,7 @@
         <div class="titlelogin">
             <h2>Please sign in</h2>
         </div>
-        <form @submit.prevent="onSubmit">
+        <form @submit.prevent="signin">
         <div class="inputlogin">
             <label for="inputEmail" class="sr-only">Email address</label>
             <input v-model="email" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -17,7 +17,7 @@
                 电脑屏幕大的话，贞子更好爬出来
             </label>
             <!-- <button class="btn btn-lg btn-primary btn-block buttonlogin" type="submit" @click="signin">Sign in</button> -->
-            <input class="btn btn-lg btn-primary btn-block buttonlogin" type="submit" value="Sign in" @click="signin">
+            <input class="btn btn-lg btn-primary btn-block buttonlogin" type="submit" value="Sign in">
             </div>
         </div>
         </form>
