@@ -28,16 +28,6 @@
  <script>
  export default {
      computed:{
-        //  currenuser(){
-        //      if(this.$store.state.user.isLogin){
-        //          return sessionStorage.getItem("name")
-        //      }
-        //  },
-        //  isLogin(){
-        //      return this.$store.state.user.isLogin
-        //  }
-
-
         currenuser(){
             if(this.$store.state.user.isLogin){
                  return sessionStorage.getItem("name")
