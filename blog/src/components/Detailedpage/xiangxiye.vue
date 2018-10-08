@@ -9,7 +9,7 @@
                 <h1>{{xiangxi.title}}</h1>
                 
                 <mavonEditor :ishljs="true" :scrollStyle="true" :editable="false" :toolbarsFlag="false" :subfield="false" :defaultOpen="defaultData" v-model="xiangxi.Detailed"/>
-                <h1>{{xiangxi.time}}</h1>
+                <h1>{{xiangxi.dateTim}}</h1>
                 
             </div>
             <div class="col-md-4">

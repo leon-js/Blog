@@ -36,7 +36,7 @@
             <p class="p1" style="text-indent:2em;">{{item.Detailed}}</p>
             <div class="row">
                 <div class="col-md-6">
-                    <p style="text-align:right">{{item.time}}</p>
+                    <p style="text-align:right">{{item.dateTim}}</p>
                 </div>
                 <div class="col-md-6">
                     <p><router-link v-bind:to="'/detailed/'+item.id" class="btn btn-secondary" href="#" role="button">查看详细 &raquo;</router-link></p>

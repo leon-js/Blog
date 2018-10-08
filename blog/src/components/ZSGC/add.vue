@@ -7,6 +7,7 @@
             <option disabled >--请选择--</option>
             <option :value="kind.kind" v-for="kind in getKinds" :key="kind.index">{{kind.kind}}</option>
             </select> -->
+            {{kindid}}
             {{kind}}
             <mavonEditor v-model="content.Detailed"/>
             <button type="button" @click="addContent">提交</button>
@@ -21,15 +22,30 @@ export default {
     data(){
         return{
             content:{},
+            kindid:null,
             kind:'',
+            dateTim:''
         }
     },
     components:{
         mavonEditor
     },
     created(){
+        // this.http.post('/api/setUpdate',{
+                //     id:this.message.id,title:this.message.title,detailed:this.message.Detailed
+                // }).then((res)=>{
+                //     console.log('res',res)
+                //     this.$router.go(-1)
+                // })
         let routerParams = this.$route.query.kind
-        this.kind = routerParams
+        this.kindid = routerParams
+        
+        this.http.get('/api/getKind',{
+            params: {id:this.kindid}
+        }).then((res)=>{
+            console.log('res',res)
+            this.kind = res.data[0].kind
+        })
         // this.http.get("kinds")
         //     .then(res => this.$store.commit("setKinds",res.data))
     },
@@ -56,6 +72,9 @@ export default {
             //     alert("请选择相应的类型")
             // }
             else{
+                
+
+                
                 var date = new Date();
                 var seperator1 = "-";
                 var year = date.getFullYear();
@@ -79,11 +98,41 @@ export default {
                     title : this.content.title,
                     Detailed : this.content.Detailed,
                     time : currentdate,
-                    kind : this.kind
+                    kind : this.kind,
+                    dateTim:this.dateTim
                 }
-                this.http.post("content",newContent)
-                    .then(res =>console.log(newContent))
+
+
+                // this.http.post('/api/setUpdate',{
+                //     id:this.message.id,title:this.message.title,detailed:this.message.Detailed
+                // }).then((res)=>{
+                //     console.log('res',res)
+                //     this.$router.go(-1)
+                // })
+                
+                this.http.get('/api/getKind',{}).then((res)=>{
+                    console.log('res',res.headers.date)
+                    this.dateTim = res.headers.date
+
+                    this.http.post('/api/addValue',{
+                        title : this.content.title,
+                        detailed : this.content.Detailed,
+                        time:currentdate,
+                        kind:this.kind,
+                        dateTim:this.dateTim
+                        }).then((res)=>{
+                            console.log('res',res)
+                        })
+
+                })
+
+
+                
+                // this.http.post("content",newContent)
+                //     .then(res =>console.log(newContent))
                 alert("添加成功")
+
+
                 // this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=id&_order=asc"})
                 this.$router.go(-1)
                 }

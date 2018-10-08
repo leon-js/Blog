@@ -6,7 +6,7 @@
                     <!-- <h1><router-link :to="{name:'detailedLink',query:{id:vue.id}}"  href="#" >{{vue.title}}</router-link></h1> -->
                     <h1><router-link v-bind:to="'/detailed/'+vue.id" href="#">{{vue.title}}</router-link></h1>
                     <h2>{{vue.Detailed}}</h2>
-                    <h3>{{vue.time}}</h3>
+                    <h3>{{vue.dateTim}}</h3>
                 </div>
             </div>
             <div class="col-md-4">
@@ -20,7 +20,7 @@
 export default {
     data(){
         return{
-            kind:''
+            kind:null
         }
     },
     created(){
