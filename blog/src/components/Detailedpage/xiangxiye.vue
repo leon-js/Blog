@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-8">
                 
-                <h1>12</h1>
+                <h1>{{xiangxi.id}}</h1>
                 <h2 v-cloak>{{msg}}</h2>
                 <h1>{{xiangxi.title}}</h1>
                 
@@ -30,7 +30,8 @@ export default {
         return{
             msg:'',
             defaultData:'preview',
-            xiangxi:{}
+            xiangxi:{},
+            id:null
         }
     },
     components:{
@@ -38,8 +39,8 @@ export default {
     },
     created(){
         this.fetchXiangxi(this.$route.params.id)
-        // let routerParams = this.$route.query.id
-        // this.msg = routerParams
+        let routerParams = this.$route.query.id
+        this.id = routerParams
         // this.http.get("content?id="+routerParams)
         //     .then(res => {
         //         this.xiangxi = res.data
@@ -63,7 +64,12 @@ export default {
                 console.log(usersudo)
                 if(sudo != null && usersudo != null && sudo == usersudo){
                     alert("删除成功")
-                    this.http.delete("content/"+this.msg)
+                    // this.http.delete("content/"+this.msg)
+                    this.http.post('/api/deleteValue',{
+                        id:this.xiangxi.id
+                    }).then((res)=>{
+                        console.log(res)
+                    })
                     this.$router.go(-1)
                 }else if(sudo == null){}
                 else if(sudo != null && sudo != usersudo){
