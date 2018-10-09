@@ -90,7 +90,7 @@ export default {
 
 <style scoped>
 .bg{
-    background: url(../../assets/FirstPage/screen.jpg);
+    /* background: url(../../assets/FirstPage/screen.jpg); */
     background-size: 100%;
     background-repeat: no-repeat;
 }

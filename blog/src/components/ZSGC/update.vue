@@ -36,6 +36,19 @@ export default {
     components:{
         mavonEditor
     },
+    beforeRouteEnter:(to,from,next) => {
+        var a = sessionStorage.getItem("isLogin")
+        if(a == "1"){
+            next()
+        }else{
+            if(confirm("对不起，您没有查看权限，请先登录") == true){
+                next('/islogin')
+            }
+            else{
+                next(false)
+            }
+        }
+    },
     created(){
         let routerParams = this.$route.query.id
         this.id = routerParams

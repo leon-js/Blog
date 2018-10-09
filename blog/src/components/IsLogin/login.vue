@@ -1,5 +1,5 @@
 <template>
-<div class="bg">
+<div>
 <body class="text-center">
     <div class="container">
         <div class="titlelogin">
@@ -91,9 +91,7 @@ export default {
 </script>
 
 <style scoped>
-.bg{
-    background: url(../../assets/FirstPage/screen.jpg)
-}
+
 .titlelogin{
     margin-top: 15%;
 }
