@@ -98,8 +98,8 @@ export default {
 
 <style scoped>
 .bg{
-    /* background: url(../../static/firstpage/yzf.jpg); */
-    background: url(../../assets/firstpage/yzf.jpg);
+    background: url(../../static/firstpage/yzf.jpg);
+    /* background: url(../../assets/firstpage/yzf.jpg); */
     /* background: url(static/FirstPage/yzf.jpg); */
     background-size: 100%;
     background-repeat: no-repeat;
