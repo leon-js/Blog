@@ -5,7 +5,8 @@ const state = {
     vue:{},
     html:{},
     css:{},
-    javascript:{}
+    javascript:{},
+    ubuntu:{}
 }
 
 const getters = {
@@ -15,8 +16,10 @@ const getters = {
     getContentvue : state => state.vue,
     getContenthtml : state => state.html,
     getContentcss : state => state.css,
-    getContentjavascript : state => state.javascript
+    getContentjavascript : state => state.javascript,
+    getContentubuntu : state => state.ubuntu
 }
+
 
 const mutations = {
     //改变属性状态
@@ -37,7 +40,10 @@ const mutations = {
     },
     setContentjavascript(state,data){
         state.javascript = data
-    }
+    },
+    setContentubuntu(state,data){
+        state.ubuntu = data
+    },
 }
 
 const actions = {

@@ -23,7 +23,7 @@
                     <h3>最新学习答疑事项</h3>
                 </div>
                 <div class="col-md-6">
-                    <router-link :to="{name:'alllearningLink'}"><h5 style="text-align:right">查看更多&raquo;</h5></router-link>
+                    <router-link :to="{name:'alllearningLink',query:{id:4}}"><h5 style="text-align:right">查看更多&raquo;</h5></router-link>
                 </div>
             </div>
         </div>
@@ -98,8 +98,8 @@ export default {
 
 <style scoped>
 .bg{
-    background: url(../../static/firstpage/yzf.jpg);
-    /* background: url(../../assets/firstpage/yzf.jpg); */
+    /* background: url(https://github.com/lianglihao/IMG/blob/master/heyan.jpg); */
+    background: url(../../assets/firstpage/yzf.jpg);
     /* background: url(static/FirstPage/yzf.jpg); */
     background-size: 100%;
     background-repeat: no-repeat;
