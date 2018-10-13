@@ -2,19 +2,18 @@
 <div v-cloak>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                
-                <h1>{{xiangxi.id}}</h1>
-                <h2 v-cloak>{{msg}}</h2>
-                <h1>{{xiangxi.title}}</h1>
+            <div class="col-md-10">
+                <div>
+                    <h1>{{xiangxi.title}}</h1>
+                </div>
                 
                 <mavonEditor :ishljs="true" :scrollStyle="true" :editable="false" :toolbarsFlag="false" :subfield="false" :defaultOpen="defaultData" v-model="xiangxi.Detailed"/>
-                <h1>{{xiangxi.dateTim}}</h1>
+                <p>{{xiangxi.dateTim}}</p>
                 
             </div>
-            <div class="col-md-4">
-                <p><router-link :to="{name:'updateLink',query:{id:xiangxi.id}}" class="btn btn-secondary" href="#" role="button">修改</router-link></p>
-                <p><button @click="shanchu" class="btn btn-secondary" href="#" role="button">删除</button></p>
+            <div class="col-md-2">
+                <p><router-link :to="{name:'updateLink',query:{id:xiangxi.id}}" class="btn btn-sm btn-success btn-block" href="#" role="button"><i class="el-icon-edit"></i>&nbsp;修改</router-link></p>
+                <p><button @click="shanchu" class="btn btn-sm btn-danger btn-block" href="#" role="button"><i class="el-icon-delete"></i>&nbsp;删除</button></p>
             </div>
         </div>
        

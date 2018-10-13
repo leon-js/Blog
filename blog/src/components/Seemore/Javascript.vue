@@ -1,16 +1,33 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-md-8">
-                <div v-for="vue in getAll" :key="vue.index">
-                    <!-- <h1><router-link :to="{name:'detailedLink',query:{id:vue.id}}"  href="#" >{{vue.title}}</router-link></h1> -->
-                    <h1><router-link v-bind:to="'/detailed/'+vue.id" href="#">{{vue.title}}</router-link></h1>
-                    <h2>{{vue.Detailed}}</h2>
-                    <h3>{{vue.dateTim}}</h3>
+            <div class="col-md-10">
+                <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <!-- <div class="col-md-4 card" v-for="(item,index) in getContents" v-if="index <= 8" :key="item.index">
+            <h2 style="text-indent:2em;">{{item.title}}</h2>
+            <p class="p1" style="text-indent:2em;">{{item.Detailed}}</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p style="text-align:right">{{item.dateTim}}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><router-link v-bind:to="'/detailed/'+item.id" class="btn btn-secondary" href="#" role="button">查看详细 &raquo;</router-link></p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <router-link :to="{name:'addLink',query:{kind:this.kind}}">添加</router-link>
+          </div> -->
+          <div class="col-md-4" v-for="(item,index) in getAll" v-if="index <= 11" :key="item.index">
+              <p><router-link class="titlelink" v-bind:to="'/detailed/'+item.id"  href="#" ><strong>{{item.title}}</strong></router-link></p>
+              <!-- <p style="text-indent:0.5em;"><strong>{{item.title}}</strong></p> -->
+              <p >{{item.dateTim}}</p>
+          </div>
+        </div>
+        <hr>
+      </div> <!-- /container -->
+            </div>
+            <div class="col-md-2">
+                <router-link class="btn btn-sm btn-primary btn-block buttonlogin" :to="{name:'addLink',query:{kind:this.kind}}"><i class="el-icon-edit"></i>&nbsp;添加</router-link>
             </div>
         </div>
     </div>

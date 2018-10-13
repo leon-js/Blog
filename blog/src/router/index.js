@@ -21,7 +21,7 @@ import Ubuntu from '../components/Seemore/Ubuntu'
 Vue.use(Router)
 
 export default new Router({
-  // mode:"history",
+  mode:"history",
   base:__dirname,
   
   // scrollBehavior (to, from, savedPosition) {

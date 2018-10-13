@@ -12,6 +12,7 @@
                         <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
                 </div>
                 <div class="col-md-4 bg">
+                    <img src="../../assets/firstpage/laopomeimeidatouxiang.jpg" alt="图片加载失败">
                 </div>
             </div>   
         </div>
@@ -31,7 +32,7 @@
       <div class="container">
         <!-- Example row of columns -->
         <div class="row">
-          <div class="col-md-4 card" v-for="(item,index) in getContents" v-if="index <= 8" :key="item.index">
+          <!-- <div class="col-md-4 card" v-for="(item,index) in getContents" v-if="index <= 8" :key="item.index">
             <h2 style="text-indent:2em;">{{item.title}}</h2>
             <p class="p1" style="text-indent:2em;">{{item.Detailed}}</p>
             <div class="row">
@@ -42,6 +43,11 @@
                     <p><router-link v-bind:to="'/detailed/'+item.id" class="btn btn-secondary" href="#" role="button">查看详细 &raquo;</router-link></p>
                 </div>
             </div>
+          </div> -->
+          <div class="col-md-4" v-for="(item,index) in getContents" v-if="index <= 11" :key="item.index">
+              <p><router-link class="titlelink" v-bind:to="'/detailed/'+item.id"  href="#" ><strong>{{item.title}}</strong></router-link></p>
+              <!-- <p style="text-indent:0.5em;"><strong>{{item.title}}</strong></p> -->
+              <p >{{item.dateTim}}</p>
           </div>
         </div>
         <hr>
@@ -72,6 +78,7 @@ export default {
              return this.$store.getters.getcurrenuser
          },
     },
+
     methods:{
         gettime(){
             var date = new Date();
@@ -98,8 +105,9 @@ export default {
 
 <style scoped>
 .bg{
-    /* background: url(https://github.com/lianglihao/IMG/blob/master/heyan.jpg); */
-    background: url(../../assets/firstpage/yzf.jpg);
+    /* background: url(../../assets/firstpage/laopomeimeidatouxiang.jpg); */
+    /* background: url(../../static/firstpage/yzf.jpg); */
+    /* background: url(../../assets/firstpage/yzf.jpg); */
     /* background: url(static/FirstPage/yzf.jpg); */
     background-size: 100%;
     background-repeat: no-repeat;
@@ -113,5 +121,8 @@ export default {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+}
+.titlelink{
+    color: black;
 }
 </style>

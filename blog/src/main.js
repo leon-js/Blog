@@ -5,11 +5,17 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import {store} from './store/store'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+
 
 Vue.config.productionTip = false
 // axios.defaults.baseURL = "http://139.199.206.151:3000/"
 // axios.defaults.baseURL = "http://localhost:3000/"
 // Vue.use(axios)
+Vue.use(ElementUI)
 Vue.prototype.http = axios
 
 

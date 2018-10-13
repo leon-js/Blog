@@ -132,7 +132,11 @@ export default {
                 //     .then(res =>console.log(newContent))
                 alert("添加成功")
 
-
+                this.http.get('/api/getContentAll')
+                .then( (res) => {
+                    console.log('res',res.data);
+                    this.$store.commit("setContent",res.data)
+                })
                 // this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=id&_order=asc"})
                 this.$router.go(-1)
                 }

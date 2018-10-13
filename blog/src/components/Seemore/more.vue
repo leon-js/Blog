@@ -43,7 +43,7 @@
     </div>
     <div class="container">
         <!-- Example row of columns -->
-        <div class="row">
+        <div >
             <router-view></router-view>
           <!-- <div class="col-md-6 card" v-for="item in getContents" :key="item.index">
             <h2 style="text-indent:2em;">{{item.title}}</h2>

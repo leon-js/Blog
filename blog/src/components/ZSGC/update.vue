@@ -3,20 +3,16 @@
         <h1 class="page-header">内容编辑</h1>
         <div class="row">
             <form @submit.prevent>
-                <div class="well">
-                    
-                    <h4>内容详情</h4>
-                    {{message}}
+                <div class="well">    
                     <div class="form-group">
-                        <label>Title</label>
-                        <h1>{{message.title}}</h1>
+                        <label>标题</label>
                         <input type="text" class="form-control" placeholder="Title" v-model="message.title">
                     </div>
                     <div class="form-group">
-                        <label>Detailed</label>
+                        <label>内容</label>
                         <mavonEditor v-model="message.Detailed"/>
                     </div>
-                    <button type="button" @click="updateAll" class="btn btn-primary">确认</button>
+                    <button type="button" @click="updateAll" class="btn btn-sm btn-primary btn-block">确认</button>
                 </div>
             </form>
         </div>
