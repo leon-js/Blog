@@ -118,7 +118,11 @@ export default {
                         // sessionStorage.setItem("usersudo",this.$store.getters.getusersudo)
                         // this.$router.push({name:"firstLink"})
                     }else{
-                        alert("账号或密码错误，请重新输入")
+                        // alert("账号或密码错误，请重新输入")
+                        this.$alert('账号或密码错误，请重新输入', '提示', {
+                        confirmButtonText: '确定',
+                        
+                        });
                         this.email = ""
                         this.password = ""
                         this.$store.dispatch("setUser",null)

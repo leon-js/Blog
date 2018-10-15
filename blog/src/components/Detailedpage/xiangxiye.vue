@@ -14,6 +14,7 @@
             <div class="col-md-2">
                 <p><router-link :to="{name:'updateLink',query:{id:xiangxi.id}}" class="btn btn-sm btn-success btn-block" href="#" role="button"><i class="el-icon-edit"></i>&nbsp;修改</router-link></p>
                 <p><button @click="shanchu" class="btn btn-sm btn-danger btn-block" href="#" role="button"><i class="el-icon-delete"></i>&nbsp;删除</button></p>
+                <p><button @click="fanhui" class="btn btn-sm btn-primary btn-block" href="#" role="button"><i class="el-icon-back"></i>&nbsp;返回</button></p>
             </div>
         </div>
        
@@ -76,6 +77,9 @@ export default {
                 }else{  }
             }
             else{     }
+        },
+        fanhui(){
+            this.$router.go(-1)
         }
     },
     beforeDestroy(){

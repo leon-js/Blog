@@ -100,6 +100,8 @@ export default {
         //     return this.$store.getters.getContent
         // },
     },
+
+
     beforeRouteEnter:(to,from,next) => {
         var a = sessionStorage.getItem("isLogin")
         if(a == "1"){
@@ -113,6 +115,8 @@ export default {
             }
         }
     },
+
+
     beforeDestroy(){
         if(sessionStorage.getItem("isLogin") == "0"){
             this.$router.go(0)
