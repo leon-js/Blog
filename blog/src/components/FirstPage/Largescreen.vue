@@ -12,7 +12,7 @@
                         <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
                 </div>
                 <div class="col-md-4 bg">
-                    <img src="../../assets/firstpage/laopomeimeidatouxiang.jpg" alt="图片加载失败">
+                    <img src="../../../static/firstPage/laopomeimeidatouxiang.jpg" alt="图片加载失败">
                 </div>
             </div>   
         </div>
