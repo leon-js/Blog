@@ -53,7 +53,7 @@ export default {
             this.http.get('/api/getValue', {
                 params: {id: id}
             }).then( (res) => {
-                console.log('res', res.data);
+                // console.log('res', res.data);
                 this.xiangxi = res.data[0];
             })
         },
@@ -61,14 +61,14 @@ export default {
             if(confirm("确认删除吗，将无法撤回") == true){
                 var sudo = prompt("请输入权限密码进行验证","");
                 var usersudo = sessionStorage.getItem("usersudo")
-                console.log(usersudo)
+                // console.log(usersudo)
                 if(sudo != null && usersudo != null && sudo == usersudo){
                     alert("删除成功")
                     // this.http.delete("content/"+this.msg)
                     this.http.post('/api/deleteValue',{
                         id:this.xiangxi.id
                     }).then((res)=>{
-                        console.log(res)
+                        // console.log(res)
                     })
                     this.$router.go(-1)
                 }else if(sudo == null){}

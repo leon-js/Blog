@@ -48,7 +48,7 @@ export default {
     created(){
         let routerParams = this.$route.query.id
         this.id = routerParams
-        console.log(routerParams)
+        // console.log(routerParams)
         // this.http.get("content?id="+routerParams)
         //     .then(res => this.$store.commit("setContent",res.data))
         // this.message = this.$store.state
@@ -58,10 +58,10 @@ export default {
         this.http.get('/api/getValue', {
                 params: {id: this.id}
             }).then( (res) => {
-                console.log('res', res.data);
+                // console.log('res', res.data);
                 this.message = res.data[0];
             })
-        console.log(this.message)
+        // console.log(this.message)
     },
     methods:{
         updateAll(e){
@@ -93,7 +93,7 @@ export default {
                 this.http.post('/api/setUpdate',{
                     id:this.message.id,title:this.message.title,detailed:this.message.Detailed
                 }).then((res)=>{
-                    console.log('res',res)
+                    // console.log('res',res)
                     this.$router.go(-1)
                 })
             }

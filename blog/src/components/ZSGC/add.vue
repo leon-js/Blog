@@ -43,7 +43,7 @@ export default {
         this.http.get('/api/getKind',{
             params: {id:this.kindid}
         }).then((res)=>{
-            console.log('res',res)
+            // console.log('res',res)
             this.kind = res.data[0].kind
         })
         // this.http.get("kinds")
@@ -93,7 +93,7 @@ export default {
                     second = "0" + second;
                 }
                 var currentdate = year + seperator1 + month + seperator1 + strDate + " " +hour + ":" + minute + ":" + second;
-                console.log(currentdate)
+                // console.log(currentdate)
                 let newContent = {
                     title : this.content.title,
                     Detailed : this.content.Detailed,
@@ -111,7 +111,7 @@ export default {
                 // })
                 
                 this.http.get('/api/getKind',{}).then((res)=>{
-                    console.log('res',res.headers.date)
+                    // console.log('res',res.headers.date)
                     this.dateTim = res.headers.date
 
                     this.http.post('/api/addValue',{
@@ -121,7 +121,7 @@ export default {
                         kind:this.kind,
                         dateTim:this.dateTim
                         }).then((res)=>{
-                            console.log('res',res)
+                            // console.log('res',res)
                         })
 
                 })
@@ -134,7 +134,7 @@ export default {
 
                 this.http.get('/api/getContentAll')
                 .then( (res) => {
-                    console.log('res',res.data);
+                    // console.log('res',res.data);
                     this.$store.commit("setContent",res.data)
                 })
                 // this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=id&_order=asc"})

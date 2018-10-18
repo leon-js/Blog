@@ -66,7 +66,7 @@ export default {
     created(){
         this.http.get('/api/getContentAll')
             .then( (res) => {
-                console.log('res',res.data);
+                // console.log('res',res.data);
                 this.$store.commit("setContent",res.data)
             })
     },
@@ -96,7 +96,7 @@ export default {
                 strDate = "0" + strDate;
             }
             var currentdate = year + seperator1 + month + seperator1 + strDate + " " +hour + ":" + minute + ":" + second;
-            console.log(currentdate)
+            // console.log(currentdate)
             return currentdate;
         }
     }

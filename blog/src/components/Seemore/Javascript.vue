@@ -44,14 +44,14 @@ export default {
     created(){
         let routerParams = this.$route.query.id
         this.kind = routerParams
-        console.log(this.kind)
+        // console.log(this.kind)
         // this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
         //     .then(res => this.$store.commit("setContent",res.data))
         this.http.get('/api/getContentAllforKind',{
             params: {kind:this.kind}
         })
             .then( (res) => {
-                console.log('res',res.data);
+                // console.log('res',res.data);
                 this.$store.commit("setContentjavascript",res.data)
                 // this.javascript = res.data
             })

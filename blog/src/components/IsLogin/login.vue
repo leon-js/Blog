@@ -60,7 +60,7 @@ export default {
         signin(){
             this.http.get('/api/getUsers')
                 .then(res => {
-                    console.log('res',res.data)
+                    // console.log('res',res.data)
                     const data = res.data
                     const users = []
                     for(let key in data){
