@@ -17,7 +17,7 @@
                 </div>
             </div>
           </div> -->
-          <div class="col-md-4" v-for="(item,index) in getAll" v-if="index <= 11" :key="item.index">
+          <div class="col-md-4" v-for="(item) in getAll"  :key="item.index">
               <p><router-link class="titlelink" v-bind:to="'/detailed/'+item.id"  href="#" ><strong>{{item.title}}</strong></router-link></p>
               <!-- <p style="text-indent:0.5em;"><strong>{{item.title}}</strong></p> -->
               <p >{{item.dateTim}}</p>
