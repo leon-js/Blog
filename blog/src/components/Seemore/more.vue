@@ -3,13 +3,11 @@
     <div class="jumbotron">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <h1 class="display-3">Welcome back Sir!</h1>
                         <p style="text-indent:2em;">生活不如意总比如意多，而对此的恪守，热情恰恰也源于自身的坚韧。时刻提醒自己，要自律，要保持份内在的从容与安静。</p>
                         <p style="text-indent:2em;">花花世界，静守己心。</p>
                         <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
-                </div>
-                <div class="col-md-4 bg">
                 </div>
             </div>   
         </div>
