@@ -42,15 +42,6 @@ export default {
         sessionStorage.clear()
         next(vm => vm.$store.dispatch("setUser",null))
     },
-    // beforeMount(){
-    //     sessionStorage.setItem("isLogin","0")
-    // },
-    // updated(){
-    //     sessionStorage.clear()
-    // },
-    // beforeDestroy(){
-    //     this.$router.go(0)
-    // },
     methods:{
         // this.http.get('/api/getContentAll')
         //     .then( (res) => {
