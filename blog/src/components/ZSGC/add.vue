@@ -130,7 +130,7 @@ export default {
                 
                 // this.http.post("content",newContent)
                 //     .then(res =>console.log(newContent))
-                alert("添加成功")
+                
 
                 this.http.get('/api/getContentAll')
                 .then( (res) => {
@@ -139,6 +139,11 @@ export default {
                 })
                 // this.$router.push({path:"/allmore_learning?kind="+this.kind+"&_sort=id&_order=asc"})
                 this.$router.go(-1)
+                this.$notify.success({
+                    title: '提示信息',
+                    message: '成功添加'+this.kind+'相关内容 '+this.content.title,
+                    showClose: false
+                    });
                 }
             e.preventDefault()
         }

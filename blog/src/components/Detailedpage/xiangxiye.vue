@@ -63,7 +63,7 @@ export default {
                 var usersudo = sessionStorage.getItem("usersudo")
                 // console.log(usersudo)
                 if(sudo != null && usersudo != null && sudo == usersudo){
-                    alert("删除成功")
+                    
                     // this.http.delete("content/"+this.msg)
                     this.http.post('/api/deleteValue',{
                         id:this.xiangxi.id
@@ -71,6 +71,11 @@ export default {
                         // console.log(res)
                     })
                     this.$router.go(-1)
+                    this.$notify.warning({
+                        title: '提示信息',
+                        message: '已删除'+this.xiangxi.kind+'相关内容'+this.xiangxi.title,
+                        showClose: false
+                    });
                 }else if(sudo == null){}
                 else if(sudo != null && sudo != usersudo){
                     alert("权限密码错误")

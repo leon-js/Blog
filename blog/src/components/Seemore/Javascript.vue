@@ -17,11 +17,21 @@
                 </div>
             </div>
           </div> -->
-          <div class="col-md-4" v-for="(item) in getAll"  :key="item.index">
+
+
+          <div class="col-md-4" v-if="getAll" track-by="$index" v-for="(item) in getAll.slice((currentPage-1)*pagesize,currentPage*pagesize)"  :key="item.index">
               <p><router-link class="titlelink" v-bind:to="'/detailed/'+item.id"  href="#" ><strong>{{item.title}}</strong></router-link></p>
               <!-- <p style="text-indent:0.5em;"><strong>{{item.title}}</strong></p> -->
               <p >{{item.dateTim}}</p>
           </div>
+
+          <!-- <el-table class="col-md-4" :data="getAll.slice((currentPage-1)*pagesize,currentPage*pagesize)">
+              <p><router-link class="titlelink" v-bind:to="'/detailed/'+item.id"  href="#" ><strong>{{item.title}}</strong></router-link></p>
+              <p style="text-indent:0.5em;"><strong>{{item.title}}</strong></p>
+              <p >{{item.dateTim}}</p>
+          </el-table> -->
+
+       
         </div>
         <hr>
       </div> <!-- /container -->
@@ -29,6 +39,20 @@
             <div class="col-md-2">
                 <router-link class="btn btn-sm btn-primary btn-block buttonlogin" :to="{name:'addLink',query:{kind:this.kind}}"><i class="el-icon-edit"></i>&nbsp;添加</router-link>
             </div>
+    <div class="container">
+        <div class="block">
+            <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage"
+                :page-sizes="[18, 27, 36, 45]"
+                :page-size="pagesize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="getAll.length">
+            </el-pagination>
+
+        </div>
+    </div>
         </div>
     </div>
 </template>
@@ -38,7 +62,9 @@ export default {
     data(){
         return{
             kind:null,
-            javascript:{}
+            javascript:{},
+            currentPage:1,//初始页
+            pagesize:18,//每页的数据
         }
     },
     created(){
@@ -58,7 +84,19 @@ export default {
     },
     computed:{
         getAll(){
+            // this.javascript = this.$store.getters.getContentjavascript
+            // console.log(this.javascript.length)
             return this.$store.getters.getContentjavascript
+        },
+    },
+    methods:{
+        handleSizeChange(val) {
+            this.pagesize = val
+            console.log(`每页 ${val} 条`);
+        },
+        handleCurrentChange(val) {
+            this.currentPage = val
+            console.log(`当前页: ${val}`);
         }
     },
     // beforeDestroy(){
@@ -99,6 +137,8 @@ export default {
                 this.$store.commit("setContentjavascript",res.data)
                 // this.javascript = res.data
             })
+
+        
     }
 }
 </script>

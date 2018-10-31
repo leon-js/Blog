@@ -56,11 +56,12 @@
             cancelButtonText: '取消',
             type: 'warning'
             }).then(() => {
+                sessionStorage.clear()
                 this.$router.push({name:"isloginLink"})
-            this.$message({
-                type: 'info',
-                message: '已退出当前账号'
-            });
+                this.$message({
+                    type: 'info',
+                    message: '已退出当前账号'
+                });
             }).catch(() => {
             this.$message({
                 type: 'info',
@@ -68,7 +69,6 @@
             });          
             });
 
-             sessionStorage.clear()
          },
          handleSelect(key, keyPath) {
             // console.log(key, keyPath);
