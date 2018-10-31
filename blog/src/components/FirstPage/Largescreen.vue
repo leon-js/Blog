@@ -10,7 +10,7 @@
                         <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
                 </div>
                 <div class="col-md-4 bg">
-                    <img src="../../../static/firstPage/laopomeimeidatouxiang.jpg" alt="图片加载失败">
+                    <img src="/static/firstPage/laopomeimeidatouxiang.jpg" alt="图片加载失败">
                 </div>
             </div>   
         </div>
@@ -22,7 +22,7 @@
                     <h3>最新学习答疑事项</h3>
                 </div>
                 <div class="col-md-6">
-                    <router-link :to="{name:'alllearningLink',query:{id:4}}"><h5 style="text-align:right">查看更多&raquo;</h5></router-link>
+                    <router-link :to="{name:'alllearningLink',query:{id:4}}"><h5 style="text-align:right" @click="Lablekind">查看更多&raquo;</h5></router-link>
                 </div>
             </div>
         </div>
@@ -78,6 +78,9 @@ export default {
     },
 
     methods:{
+        Lablekind(){
+            sessionStorage.setItem('LabelKinds','javascript')
+        },
         gettime(){
             var date = new Date();
             var seperator1 = "-";

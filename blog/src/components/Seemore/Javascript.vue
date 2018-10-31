@@ -19,7 +19,7 @@
           </div> -->
 
 
-          <div class="col-md-4" v-if="getAll" track-by="$index" v-for="(item) in getAll.slice((currentPage-1)*pagesize,currentPage*pagesize)"  :key="item.index">
+          <div class="col-md-4" v-if="getAll" v-for="(item) in getAll.slice((currentPage-1)*pagesize,currentPage*pagesize)"  :key="item.index">
               <p><router-link class="titlelink" v-bind:to="'/detailed/'+item.id"  href="#" ><strong>{{item.title}}</strong></router-link></p>
               <!-- <p style="text-indent:0.5em;"><strong>{{item.title}}</strong></p> -->
               <p >{{item.dateTim}}</p>

@@ -12,29 +12,36 @@
             </div>   
         </div>
     </div>
+    <div class="container biaoqian">
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item>more</el-breadcrumb-item>
+        <el-breadcrumb-item>{{this.kinds}}</el-breadcrumb-item>
+        </el-breadcrumb>
+    </div>
     <div class="container">
         <router-link :to="{name:'vueall',query:{id:3}}">
-            <button class="myBtnhome">
+            <button class="myBtnhome" @click="changekind('Vue')">
                     <strong>Vue</strong>
             </button>
         </router-link>
         <router-link :to="{name:'htmlall',query:{id:2}}">
-            <button class="myBtnlist">
+            <button class="myBtnlist" @click="changekind('html')">
                     <strong>Html</strong>
             </button>
         </router-link>
         <router-link :to="{name:'javascriptall',query:{id:4}}">
-            <button class="myBtnnews">
+            <button class="myBtnnews" @click="changekind('javascript')">
                     <strong>Javascript</strong>
             </button>
         </router-link>
         <router-link :to="{name:'cssall',query:{id:1}}">
-            <button class="myBtnpic">
+            <button class="myBtnpic" @click="changekind('css')">
                     <strong>Css</strong>
             </button>
         </router-link>
         <router-link :to="{name:'ubuntuall',query:{id:5}}">
-            <button class="myGao">
+            <button class="myGao" @click="changekind('ubuntu')">
                     <strong>Ubuntu</strong>
             </button>
         </router-link>
@@ -66,14 +73,16 @@
 export default {
     data(){
         return{
-            Vue:'\'vue\'',
-            Html:'\'html\'',
-            Css:'\'css\'',
-            Javascript:'\'javascript\'',
-            Ubuntu:'\'ubuntu\''
+            // Vue:'vue',
+            // Html:'html',
+            // Css:'css',
+            // Javascript:'javascript',
+            // Ubuntu:'ubuntu',
+            kinds:'javascript'
         }
     },
     created(){
+        this.kinds = sessionStorage.getItem('LabelKinds')
         //  this.http.get('/api/getContentAll')
         //     .then( (res) => {
         //         console.log('res',res.data);
@@ -98,7 +107,14 @@ export default {
         //     return this.$store.getters.getContent
         // },
     },
-
+    methods:{
+        changekind(i){
+            sessionStorage.setItem('LabelKinds',i)
+            console.log(i)
+            this.kinds = sessionStorage.getItem('LabelKinds')
+            console.log(sessionStorage.getItem('LabelKinds'))
+        }
+    },
 
     beforeRouteEnter:(to,from,next) => {
         var a = sessionStorage.getItem("isLogin")
@@ -114,12 +130,11 @@ export default {
         }
     },
 
-
-    beforeDestroy(){
-        if(sessionStorage.getItem("isLogin") == "0"){
-            this.$router.go(0)
-        }
-    },
+    // beforeDestroy(){
+    //     if(sessionStorage.getItem("isLogin") == "0"){
+    //         this.$router.go(0)
+    //     }
+    // },
 }
 </script>
 
@@ -241,5 +256,8 @@ export default {
     box-shadow: 5px 5px 5px grey;
     /*发光*/
     background-color: #f0a93e;
+}
+.biaoqian{
+    margin-bottom: 20px;
 }
 </style>

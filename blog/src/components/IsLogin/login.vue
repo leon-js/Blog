@@ -43,6 +43,7 @@ export default {
         next(vm => vm.$store.dispatch("setUser",null))
     },
     methods:{
+        
         // this.http.get('/api/getContentAll')
         //     .then( (res) => {
         //         console.log('res',res.data);
@@ -117,6 +118,7 @@ export default {
                         this.email = ""
                         this.password = ""
                         this.$store.dispatch("setUser",null)
+                        document.getElementById("inputEmail").focus();
                     }
                 })
         }
