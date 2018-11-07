@@ -14,6 +14,7 @@
                     
                 </div>
                 <div class="navbar-nav ml-auto">
+                    <!-- <img src="/static/firstPage/laopomeimeidatouxiang.jpg" class="round_icon"  alt=""> -->
                     <a class="nav-item nav-link" v-show="isLogin">{{currenuser}}</a>
                     <a id="tuichu" href="javascript:void(0);" @click="shachusession"  class="nav-item nav-link" v-show="isLogin">Sign out</a>
                     <router-link :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="!isLogin">Log in</router-link>
@@ -87,6 +88,15 @@
 }
 .tuichu a{
   cursor:pointer;
+}
+.round_icon{
+  width: 34px;
+  height: 34px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
  </style>
  

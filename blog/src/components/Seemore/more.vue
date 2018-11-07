@@ -45,6 +45,11 @@
                     <strong>Ubuntu</strong>
             </button>
         </router-link>
+        <router-link :to="{name:'mysqlall',query:{id:6}}">
+            <button class="mysql" @click="changekind('mysql')">
+                    <strong>Mysql</strong>
+            </button>
+        </router-link>
     </div>
     <div class="container">
         <!-- Example row of columns -->
@@ -163,6 +168,7 @@ export default {
     cursor: pointer;
     /*渐变效果,可以删掉这句话试试*/
     transition: all 0.8s;
+    margin-bottom: 5px
 }
 .myBtnhome:hover {
     /*鼠标悬浮效果*/
@@ -256,6 +262,23 @@ export default {
     box-shadow: 5px 5px 5px grey;
     /*发光*/
     background-color: #f0a93e;
+}
+.mysql {
+    width: 80px;
+    height: 35px;
+    background-color: #ffc0cb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /*渐变效果,可以删掉这句话试试*/
+    transition: all 0.8s;
+}
+.mysql:hover {
+    /*鼠标悬浮效果*/
+    /*阴影*/
+    box-shadow: 5px 5px 5px grey;
+    /*发光*/
+    background-color: #ffc0cb;
 }
 .biaoqian{
     margin-bottom: 20px;

@@ -17,6 +17,7 @@ import Css from '../components/Seemore/Css'
 import Html from '../components/Seemore/Html'
 import Javascript from '../components/Seemore/Javascript'
 import Ubuntu from '../components/Seemore/Ubuntu'
+import Mysql from '../components/Seemore/Mysql'
 
 Vue.use(Router)
 
@@ -78,6 +79,11 @@ export default new Router({
           path:'/all_learning/ubuntu',
           name:'ubuntuall',
           component:Ubuntu
+        },
+        {
+          path:'/all_learning/mysql',
+          name:'mysqlall',
+          component:Mysql
         },
       ]
     },

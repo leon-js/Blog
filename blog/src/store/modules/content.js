@@ -6,7 +6,8 @@ const state = {
     html:{},
     css:{},
     javascript:{},
-    ubuntu:{}
+    ubuntu:{},
+    mysql:{}
 }
 
 const getters = {
@@ -17,7 +18,8 @@ const getters = {
     getContenthtml : state => state.html,
     getContentcss : state => state.css,
     getContentjavascript : state => state.javascript,
-    getContentubuntu : state => state.ubuntu
+    getContentubuntu : state => state.ubuntu,
+    getContentmysql : state => state.mysql
 }
 
 
@@ -43,6 +45,9 @@ const mutations = {
     },
     setContentubuntu(state,data){
         state.ubuntu = data
+    },
+    setContentmysql(state,data){
+        state.mysql = data
     },
 }
 

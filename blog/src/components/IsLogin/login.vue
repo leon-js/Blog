@@ -91,6 +91,7 @@ export default {
                              message: `登陆成功: ${ sessionStorage.getItem("name") }`
                              });
                             }, 2000);
+                            console.log(returnCitySN['cip'] + returnCitySN['cname'])
                         // this.$alert('登陆成功', '登陆提示', {
                         // confirmButtonText: '确定',
                         // callback: action => {
