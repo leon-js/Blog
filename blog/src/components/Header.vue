@@ -9,12 +9,13 @@
                 <div class="navbar-nav">
                     <router-link :to="{name:'firstLink'}" class="nav-item nav-link active" href="#">首页 <span class="sr-only">(current)</span></router-link>
                     <a class="nav-item nav-link" href="#">学习圣地</a>
-                    <router-link :to="{name:'BlogLink'}" class="nav-item nav-link" href="#">小夫妻</router-link>
+                    <router-link :to="{name:'loveLink'}" class="nav-item nav-link" href="#">小夫妻</router-link>
                     <span class=" navbar-text" href="#">某些链接需要登录方可查看</span>
                     
                 </div>
                 <div class="navbar-nav ml-auto">
-                    <!-- <img src="/static/firstPage/laopomeimeidatouxiang.jpg" class="round_icon"  alt=""> -->
+                    <!-- <img src="http://139.199.206.151:7070/static/firstPage/laopomeimeidatouxiang.jpg" v-show="isLogin" class="round_icon"  alt=""> -->
+                    <img :src="head_Portrait" v-show="isLogin" class="round_icon"  alt="">
                     <a class="nav-item nav-link" v-show="isLogin">{{currenuser}}</a>
                     <a id="tuichu" href="javascript:void(0);" @click="shachusession"  class="nav-item nav-link" v-show="isLogin">Sign out</a>
                     <router-link :to="{name:'isloginLink'}" class="nav-item nav-link" v-show="!isLogin">Log in</router-link>
@@ -29,10 +30,15 @@
  export default {
       data() {
       return {
-
+  
       };
     },
      computed:{
+        head_Portrait(){
+            if(this.$store.state.user.isLogin){
+                 return sessionStorage.getItem("head_portrait")
+             }
+        },
         currenuser(){
             if(this.$store.state.user.isLogin){
                  return sessionStorage.getItem("name")
@@ -97,6 +103,9 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+.navbar-nav img{
+    margin-right: 10px;
 }
  </style>
  

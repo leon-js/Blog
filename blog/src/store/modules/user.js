@@ -5,6 +5,7 @@ const state = {
     noLogin:true,
     usersudo:null,
     token:"",
+    head_portrait:null
 }
 
 const getters = {
@@ -12,7 +13,8 @@ const getters = {
     getcurrenuser : state => state.currenuser,
     isLogin : state => state.isLogin,
     noLogin : state => state.noLogin,
-    getusersudo: state => state.usersudo
+    getusersudo: state => state.usersudo,
+    gethead_portrait:state => state.head_portrait,
 }
 
 const mutations = {
@@ -39,6 +41,13 @@ const mutations = {
         }else if(user == null){
             state.usersudo = null
         }
+    },
+    head_portrait(state,user){
+        if(user){
+            state.head_portrait = user
+        }else if(user == null){
+            state.head_portrait = null
+        }
     }
 }
 
@@ -49,6 +58,9 @@ const actions = {
     },
     setUsersudo({commit},user){
         commit("userSudo",user)
+    },
+    setHead_portrait({commit},user){
+        commit("head_portrait",user)
     }
 }
 

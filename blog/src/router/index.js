@@ -9,7 +9,7 @@ import add from '../components/ZSGC/add'
 import update from '../components/ZSGC/update'
 import deleted from '../components/ZSGC/deleted'
 import transfer from '../components/transfer'
-import Blog from '../components/Blog'
+import Love from '../components/Love/Love'
 
 // 二级路由
 import Vuevue from '../components/Seemore/Vue'
@@ -103,7 +103,7 @@ export default new Router({
       component:transfer
     },
     {
-      path:'update',
+      path:'/update',
       name:'updateLink',
       component:update
     },
@@ -113,9 +113,9 @@ export default new Router({
       component:deleted
     },
     {
-      path:'Blog',
-      name:'BlogLink',
-      component:Blog
+      path:'/love',
+      name:'loveLink',
+      component:Love
     },
     {path:'*',redirect:'/'}
   ]
