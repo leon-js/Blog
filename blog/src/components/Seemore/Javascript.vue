@@ -119,7 +119,7 @@ export default {
 // beforeDestroy（销毁前）,
 
 // destroyed（销毁后）
-    updated(){
+    mounted(){
         // this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
         //     .then(res => this.$store.commit("setContent",res.data))
         // this.http.get('/api/getContentAllforKind',{

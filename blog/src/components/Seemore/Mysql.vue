@@ -68,7 +68,7 @@ export default {
             console.log(`当前页: ${val}`);
         }
     },
-    updated(){
+    mounted(){
         this.http.get('/api/getContentAllforKind',{
             params: {kind:this.kind}
         })
