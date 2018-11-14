@@ -67,6 +67,15 @@ export default {
                 // console.log('res',res.data);
                 this.$store.commit("setContent",res.data)
             })
+        var a = new Date().getTime()
+        console.log(a)
+        if(eval("a"+"-"+localStorage.getItem("LoginTime"))>=24*60*60*1000){
+            localStorage.setItem("isLogin",null)
+            localStorage.setItem("name",null)
+            localStorage.setItem("usersudo",null)
+            localStorage.setItem("head_portrait",null)
+            localStorage.setItem("LoginTime",null)
+        }
     },
     computed:{
         getContents(){

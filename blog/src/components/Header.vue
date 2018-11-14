@@ -36,16 +36,16 @@
      computed:{
         head_Portrait(){
             if(this.$store.state.user.isLogin){
-                 return sessionStorage.getItem("head_portrait")
+                 return localStorage.getItem("head_portrait")
              }
         },
         currenuser(){
             if(this.$store.state.user.isLogin){
-                 return sessionStorage.getItem("name")
+                 return localStorage.getItem("name")
              }
          },
          isLogin(){
-             if(sessionStorage.getItem("isLogin") == "1"){
+             if(localStorage.getItem("isLogin") == "1"){
                  this.$store.commit('changeLogin', true)
                  return this.$store.state.user.isLogin
              }else{
@@ -63,7 +63,12 @@
             cancelButtonText: '取消',
             type: 'warning'
             }).then(() => {
-                sessionStorage.clear()
+                // localStorage.clear()
+                localStorage.setItem("isLogin",null)
+                localStorage.setItem("name",null)
+                localStorage.setItem("usersudo",null)
+                localStorage.setItem("head_portrait",null)
+
                 this.$router.push({name:"isloginLink"})
                 this.$message({
                     type: 'info',

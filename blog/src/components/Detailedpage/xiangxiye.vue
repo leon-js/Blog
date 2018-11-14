@@ -60,7 +60,7 @@ export default {
         shanchu(){
             if(confirm("确认删除吗，将无法撤回") == true){
                 var sudo = prompt("请输入权限密码进行验证","");
-                var usersudo = sessionStorage.getItem("usersudo")
+                var usersudo = localStorage.getItem("usersudo")
                 // console.log(usersudo)
                 if(sudo != null && usersudo != null && sudo == usersudo){
                     
@@ -88,7 +88,7 @@ export default {
         }
     },
     beforeDestroy(){
-        if(sessionStorage.getItem("isLogin") == "0"){
+        if(localStorage.getItem("isLogin") == "0"){
             this.$router.go(0)
         }
     },

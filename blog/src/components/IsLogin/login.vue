@@ -8,7 +8,7 @@
         <form @submit.prevent="signin">
         <div class="inputlogin">
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input v-model="email"  onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input  v-model="email"  onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
             <input v-model="password" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="password" id="inputPassword" class="form-control" placeholder="Password" required>   
             <div class="checkbox mb-3">
@@ -33,9 +33,10 @@
 export default {
     data(){
         return{
-            email:"",
+            email:localStorage.getItem("zhanghao"),
             password:"",
-            fullscreenLoading:false
+            fullscreenLoading:false,
+            zhaonghao:123
         }
     },
     beforeRouteEnter:(to,from,next) => {
@@ -78,21 +79,34 @@ export default {
                             this.fullscreenLoading = false;
                             }, 2000);
                             this.$store.dispatch("setUsersudo",result[0].sudo)
+                            this.$store.dispatch("setzhanghao",result[0].AccountNumber)
                             this.$store.dispatch("setUser",result[0].username)
                             this.$store.dispatch("setHead_portrait",result[0].Head_portrait)
                             this.$store.commit('changeLogin', true)
                             // alert("登录成功")
-                            sessionStorage.setItem("isLogin","1")
-                            sessionStorage.setItem("name",this.$store.getters.getcurrenuser)
-                            sessionStorage.setItem("usersudo",this.$store.getters.getusersudo)
-                            sessionStorage.setItem("head_portrait",this.$store.getters.gethead_portrait)
+
+                            // sessionStorage.setItem("isLogin","1")
+                            // localStorage.setItem("zhanghao",this.$store.getters.getaccountnumber)
+                            // sessionStorage.setItem("name",this.$store.getters.getcurrenuser)
+                            // sessionStorage.setItem("usersudo",this.$store.getters.getusersudo)
+                            // sessionStorage.setItem("head_portrait",this.$store.getters.gethead_portrait)
+
+
+                            localStorage.setItem("isLogin","1")
+                            localStorage.setItem("zhanghao",this.$store.getters.getaccountnumber)
+                            localStorage.setItem("name",this.$store.getters.getcurrenuser)
+                            localStorage.setItem("usersudo",this.$store.getters.getusersudo)
+                            localStorage.setItem("head_portrait",this.$store.getters.gethead_portrait)
+
 
                             this.$router.push({name:"firstLink"})
                             this.$message({
                              type: 'success',
-                             message: `登陆成功: ${ sessionStorage.getItem("name") }`
+                             message: `登陆成功: ${ localStorage.getItem("name") }
+                             登陆有效期为一天，24小时候需再次手动登陆`
                              });
                             }, 2000);
+                            localStorage.setItem("LoginTime",new Date().getTime())
                             console.log(returnCitySN['cip'] + returnCitySN['cname'])
                         // this.$alert('登陆成功', '登陆提示', {
                         // confirmButtonText: '确定',
