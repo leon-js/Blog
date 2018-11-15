@@ -33,7 +33,7 @@ export default {
         mavonEditor
     },
     beforeRouteEnter:(to,from,next) => {
-        var a = sessionStorage.getItem("isLogin")
+        var a = localStorage.getItem("isLogin")
         if(a == "1"){
             next()
         }else{

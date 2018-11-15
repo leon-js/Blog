@@ -40,7 +40,7 @@ export default {
         }
     },
     beforeRouteEnter:(to,from,next) => {
-        sessionStorage.clear()
+        localStorage.clear()
         next(vm => vm.$store.dispatch("setUser",null))
     },
     methods:{
