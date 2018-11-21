@@ -1,7 +1,6 @@
 <template>
     <div class="container">
         <h1 class="page-header">内容编辑</h1>
-        <div class="row">
             <form @submit.prevent>
                 <div class="well">    
                     <div class="form-group">
@@ -15,8 +14,8 @@
                     <button type="button" @click="updateAll" class="btn btn-sm btn-primary btn-block">确认</button>
                 </div>
             </form>
-        </div>
     </div>
+    
 </template>
 
 <script>

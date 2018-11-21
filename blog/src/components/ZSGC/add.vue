@@ -1,16 +1,16 @@
 <template>
     <div class="container">
-        <form>
-            <input type="text" v-model="content.title">
+        <form @submit.prevent="addContent">
+            <h2>正在添加<em>{{kind}}</em>相关内容</h2>
+            <input placeholder="想一个简洁又一针见血的标题吧..." type="text" style="width:100%;" v-model="content.title">
             <!-- <label>下拉1组：</label>
             <select v-model="content.kind">
             <option disabled >--请选择--</option>
             <option :value="kind.kind" v-for="kind in getKinds" :key="kind.index">{{kind.kind}}</option>
             </select> -->
-            {{kindid}}
-            {{kind}}
             <mavonEditor v-model="content.Detailed"/>
-            <button type="button" @click="addContent">提交</button>
+            <button type="button" class="subm" @click="addContent">提交</button>
+            <button type="button" @click="fanhui" class="subm" >返回</button>
         </form>
     </div>
 </template>
@@ -60,6 +60,9 @@ export default {
         }
     },
     methods:{
+        fanhui(){
+            this.$router.go(-1)
+        },
         addContent(e){
             if(!this.content.title){
                 alert("请输入标题")
@@ -154,5 +157,30 @@ export default {
 <style scoped>
 .v-note-wrapper{
     min-height: 600px;
+}
+.subm {
+    width: 100px;
+    height: 35px;
+    background-color: #ffc0cb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /*渐变效果,可以删掉这句话试试*/
+    transition: all 0.8s;
+    margin-top: 1% 
+}
+.sbum:hover {
+    /*鼠标悬浮效果*/
+    /*阴影*/
+    box-shadow: 5px 5px 5px grey;
+    /*发光*/
+    background-color: #ffc0cb;
+}
+.container{
+    margin-top: 1%
+}
+input{
+    border-color:plum;
+    border-block-end-style:outset
 }
 </style>

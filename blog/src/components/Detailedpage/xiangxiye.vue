@@ -112,5 +112,8 @@ export default {
 [v-cloak]{
     display: none;
 }
+.col-md-2{
+    margin-top: 5%
+}
 </style>
 

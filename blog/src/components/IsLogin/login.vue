@@ -1,16 +1,16 @@
 <template>
 <div>
 <body class="text-center">
-    <div class="container">
+    <div class="container aaa">
         <div class="titlelogin">
             <h2>Please sign in</h2>
         </div>
         <form @submit.prevent="signin">
         <div class="inputlogin">
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input  v-model="email"  onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input  v-model="email"  onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="text" id="inputEmail" class="form-control" placeholder="Email address" required>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input v-model="password" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="password" id="inputPassword" class="form-control" placeholder="Password" required>   
+            <input v-model="password" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" style="height:45px" type="password" id="inputPassword" class="form-control sss" placeholder="Password" required>   
             <div class="checkbox mb-3">
             <label class="inputtext">
                 <!-- <input type="checkbox" value="remember-me">  -->
@@ -21,9 +21,6 @@
             </div>
         </div>
         </form>
-    </div>
-    <div class="container">
-        <hr>
     </div>
 </body>
 </div> 
@@ -40,11 +37,17 @@ export default {
         }
     },
     beforeRouteEnter:(to,from,next) => {
-        localStorage.clear()
+        // localStorage.clear()
+        localStorage.setItem("isLogin",null)
+        localStorage.setItem("name",null)
+        localStorage.setItem("usersudo",null)
+        localStorage.setItem("head_portrait",null)
         next(vm => vm.$store.dispatch("setUser",null))
     },
+    computed:{
+ 
+    },
     methods:{
-        
         // this.http.get('/api/getContentAll')
         //     .then( (res) => {
         //         console.log('res',res.data);
@@ -158,5 +161,11 @@ export default {
 }
 .buttonlogin{
     margin-top: 5%;
+}
+.sss{
+    margin-top: 5%
+}
+.aaa{
+    margin-bottom: 10%
 }
 </style>
