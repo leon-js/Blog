@@ -20,7 +20,7 @@ Vue.prototype.http = axios
 
 // 捕获异常
 Vue.config.errorHandler = function (error, vm, msg) {
-  console.log('Have something wrong!!!')
+  console.log('Have something wrong!!!');
 }
 
 /* eslint-disable no-new */
