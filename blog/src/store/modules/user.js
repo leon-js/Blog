@@ -6,7 +6,8 @@ const state = {
     usersudo:null,
     token:"",
     head_portrait:null,
-    accountnumber:null
+    accountnumber:null,
+    userid:null
 }
 
 const getters = {
@@ -16,7 +17,8 @@ const getters = {
     noLogin : state => state.noLogin,
     getusersudo: state => state.usersudo,
     gethead_portrait:state => state.head_portrait,
-    getaccountnumber:state => state.accountnumber
+    getaccountnumber:state => state.accountnumber,
+    getuserid:state => state.userid
 }
 
 const mutations = {
@@ -57,6 +59,13 @@ const mutations = {
         }else if(user==null){
             state.accountnumber = null
         }
+    },
+    userId(state,user){
+        if(user){
+            state.userid = user
+        }else if(user==null){
+            state.userid= null
+        }
     }
 }
 
@@ -73,6 +82,9 @@ const actions = {
     },
     setzhanghao({commit},user){
         commit("AccountNumber",user)
+    },
+    setUserid({commit},user){
+        commit("userId",user)
     }
 }
 

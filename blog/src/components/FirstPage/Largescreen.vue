@@ -48,7 +48,6 @@
               <p >{{item.dateTim}}</p>
           </div>
         </div>
-        <hr>
       </div> <!-- /container -->
     </main>
 </template>
@@ -58,11 +57,15 @@ export default {
     name:"Largescreen",
     data(){
         return{
-            
+            userid:null
         }
     },
     created(){
-        this.http.get('/api/getContentAll')
+        let id = localStorage.getItem("userid")
+        this.userid = id
+        this.http.get('/api/getContentAll',{
+            params: {userid:this.userid}
+        })
             .then( (res) => {
                 // console.log('res',res.data);
                 this.$store.commit("setContent",res.data)

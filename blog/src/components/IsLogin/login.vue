@@ -85,6 +85,7 @@ export default {
                             this.$store.dispatch("setzhanghao",result[0].AccountNumber)
                             this.$store.dispatch("setUser",result[0].username)
                             this.$store.dispatch("setHead_portrait",result[0].Head_portrait)
+                            this.$store.dispatch("setUserid",result[0].id)
                             this.$store.commit('changeLogin', true)
                             // alert("登录成功")
 
@@ -100,6 +101,7 @@ export default {
                             localStorage.setItem("name",this.$store.getters.getcurrenuser)
                             localStorage.setItem("usersudo",this.$store.getters.getusersudo)
                             localStorage.setItem("head_portrait",this.$store.getters.gethead_portrait)
+                            localStorage.setItem("userid",this.$store.getters.getuserid)
 
 
                             this.$router.push({name:"firstLink"})
