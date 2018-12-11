@@ -103,8 +103,13 @@ export default {
                             localStorage.setItem("head_portrait",this.$store.getters.gethead_portrait)
                             localStorage.setItem("userid",this.$store.getters.getuserid)
 
-
-                            this.$router.push({name:"firstLink"})
+                            // this.$router.push({name:"firstLink"})
+                            this.$router.push({
+                                name:"firstLink",
+                                query:{
+                                    name:"s"
+                                }
+                                })
                             this.$message({
                              type: 'success',
                              message: `登陆成功: ${ localStorage.getItem("name") }
