@@ -176,3 +176,4 @@ export default {
     margin-bottom: 10%
 }
 </style>
+
