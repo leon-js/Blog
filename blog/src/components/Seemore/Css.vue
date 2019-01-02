@@ -120,8 +120,10 @@ export default {
         //         console.log('res',res.data);
         //         this.$store.commit("setContent",res.data)
         //     })
+        let id = localStorage.getItem("userid")
+        this.userid = id
         this.http.get('/api/getContentAllforKind',{
-            params: {kind:this.kind}
+            params: {kind:this.kind,userid:this.userid}
         })
             .then( (res) => {
                 // this.$store.commit("setContent",res.data)

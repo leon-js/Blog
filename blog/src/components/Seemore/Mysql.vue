@@ -69,11 +69,15 @@ export default {
         }
     },
     mounted(){
+        let id = localStorage.getItem("userid")
+        this.userid = id
         this.http.get('/api/getContentAllforKind',{
-            params: {kind:this.kind}
+            params: {kind:this.kind,userid:this.userid}
         })
             .then( (res) => {
+                // this.$store.commit("setContent",res.data)
                 this.$store.commit("setContentmysql",res.data)
+                // this.javascript = res.data
             })
     }
 }

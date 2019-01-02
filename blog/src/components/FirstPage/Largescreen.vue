@@ -63,9 +63,11 @@ export default {
     created(){
         let id = localStorage.getItem("userid")
         this.userid = id
-        this.http.get('/api/getContentAll',{
+        this.http.get('/api/getContentAll'
+        ,{
             params: {userid:this.userid}
-        })
+        }
+        )
             .then( (res) => {
                 // console.log('res',res.data);
                 this.$store.commit("setContent",res.data)

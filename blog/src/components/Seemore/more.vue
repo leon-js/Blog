@@ -95,11 +95,13 @@ export default {
         //     })
         let routerParams = this.$route.query.id
         this.kind = routerParams
+        let id = localStorage.getItem("userid")
+        this.userid = id
         // console.log(this.kind)
         // this.http.get("content?kind="+this.kind+"&_sort=id&_order=desc")
         //     .then(res => this.$store.commit("setContent",res.data))
         this.http.get('/api/getContentAllforKind',{
-            params: {kind:this.kind}
+            params: {kind:this.kind,userid:this.userid}
         })
             .then( (res) => {
                 // console.log('res',res.data);
