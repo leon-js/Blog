@@ -1,29 +1,44 @@
 <template>
-  <div id="app">
+  <div class="app" :class="{apple: isApple}">
     <Page_Head></Page_Head>
-    <router-view/>
+      <router-view/>
+    <Page_Foot></Page_Foot>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Page_Head from '@/components/Page_Head'
+import Page_Head from '@/components/head_foot/Page_Head'
+import Page_Foot from '@/components/head_foot/Page_Foot'
 export default {
   name: 'app',
   components: {
-    Page_Head
+    Page_Head,
+    Page_Foot
+  },
+  data(){
+    return {
+      isApple: true,
+      props: {
+
+      }
+    }
   }
 }
 </script>
 
-<style>
+<style scoped>
 html,body{
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
-#app{
-  min-height: 100%;
+.app{
+  color: black;
 }
+
+.apple{
+  color: gainsboro;
+}
+
 </style>
