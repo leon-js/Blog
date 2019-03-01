@@ -20,11 +20,11 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 主题切换
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" :style="{backgroundColor: '#3bb1f5'}">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" :style="{backgroundColor: '#3bb1f5', textAlign: 'center'}">
                 <!-- <a class="dropdown-item" href="#" @mouseover="mouseOver" 
         	@mouseleave="mouseLeave" :style="active">Action</a> -->
-                <a class="dropdown-item" href="#">白天</a>
-                <a class="dropdown-item" href="#">黑夜</a>
+                <button class="dropdown-item" @click="changeWhite" >白天</button>
+                <button class="dropdown-item" @click="changeBlack" >黑夜</button>
                 </div>
             </li>
             </ul>
@@ -44,12 +44,20 @@ export default {
         }
     },
     methods: {
-        mouseOver: function(){
-            this.active = 'background-color: red';
+        // mouseOver: function(){
+        //     this.active = 'background-color: red';
+        // },
+        // mouseLeave: function () {
+        //     this.active = '';
+        // },
+        changeWhite(){
+            this.headBgColor = this.globalColor.HeadBgColorMorning,
+            this.headTextColor = this.globalColor.HeadTextColorMorning
         },
-        mouseLeave: function () {
-            this.active = '';
-        },
+        changeWhite(){
+            this.headBgColor = this.globalColor.HeadBgColorNight,
+            this.headTextColor = this.globalColor.HeadTextColorNight
+        }
     }
 }
 </script>

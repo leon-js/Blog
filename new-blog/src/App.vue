@@ -1,6 +1,6 @@
 <template>
-  <div class="app" :class="{apple: isApple}">
-    <Page_Head></Page_Head>
+  <div class="app" :class="{apple: isApple}" :isApple="isApple">
+    <Page_Head @changeMorning="changeIsApple" @changeNight="changeIsApple"></Page_Head>
       <router-view/>
     <Page_Foot></Page_Foot>
   </div>
