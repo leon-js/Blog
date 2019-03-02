@@ -27,12 +27,10 @@ export default {
   created() {
     if(localStorage.getItem("theam") == 'moring'){
       this.isApple = false
-      console.log(1)
     }else if(localStorage.getItem("theam") == 'night'){
       this.isApple = true
-      console.log(2)
     }else{
-      console.log("welcome")
+
     }
   },
   methods: {
