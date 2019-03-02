@@ -1,6 +1,6 @@
 <template>
   <div class="app" :class="{apple: isApple}" :isApple="isApple">
-    <Page_Head @changeMorning="changeIsApple" @changeNight="changeIsApple"></Page_Head>
+    <Page_Head @changeTheam="changeIsApple"></Page_Head>
       <router-view/>
     <Page_Foot></Page_Foot>
   </div>
@@ -18,16 +18,35 @@ export default {
   },
   data(){
     return {
-      isApple: true,
+      isApple: false,
       props: {
 
       }
     }
+  },
+  created() {
+    if(localStorage.getItem("theam") == 'moring'){
+      this.isApple = false
+      console.log(1)
+    }else if(localStorage.getItem("theam") == 'night'){
+      this.isApple = true
+      console.log(2)
+    }else{
+      console.log("welcome")
+    }
+  },
+  methods: {
+    changeIsApple(isApple){
+      this.isApple = isApple
+    },
+  },
+  computed: {
+    
   }
 }
 </script>
 
-<style scoped>
+<style>
 html,body{
   margin: 0;
   padding: 0;
