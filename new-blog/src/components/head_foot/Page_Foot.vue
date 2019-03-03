@@ -6,14 +6,14 @@
 
 <style scoped>
 .cent{
-  text-align: center;
+  text-align     : center;
 }
 .foo{
-  color: gray;
+  color          : gray;
 }
 .foo a{
-  color: gray;
-  font-size: 14px;
+  color          : gray;
+  font-size      : 14px;
 }
 a:hover{
   text-decoration:none;

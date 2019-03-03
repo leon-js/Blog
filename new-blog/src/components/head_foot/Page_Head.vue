@@ -42,18 +42,18 @@ export default {
     name: 'Page_Head',
     data() {
         return {
-            headBgColor: this.globalColor.HeadBgColorMorning,
+            headBgColor  : this.globalColor.HeadBgColorMorning,
             headTextColor: this.globalColor.HeadTextColorMorning,
-            activeMoring: '',
-            activeNight: '',
-            isApple: false
+            activeMoring : '',
+            activeNight  : '',
+            isApple      : false
         }
     },
     created(){
         if(localStorage.getItem("theam") == 'moring'){
-            this.isApple = false
+            this.isApple = false;
         }else if(localStorage.getItem("theam") == 'night'){
-            this.isApple = true
+            this.isApple = true;
         }else{
 
         }
@@ -72,16 +72,16 @@ export default {
             this.activeNight = '';
         },
         changeWhite(){
-            this.isApple = false
-            localStorage.setItem("theam",'moring')
-            console.log(localStorage.getItem("theam"),'head')
-            this.$emit('changeTheam',this.isApple)
+            this.isApple = false;
+            localStorage.setItem("theam",'moring');
+            console.log(localStorage.getItem("theam"),'head');
+            this.$emit('changeTheam',this.isApple);
         },
         changeBlack(){
-            this.isApple = true
-            localStorage.setItem("theam",'night')
-            console.log(localStorage.getItem("theam"),'head')
-            this.$emit('changeTheam',this.isApple)
+            this.isApple = true;
+            localStorage.setItem("theam",'night');
+            console.log(localStorage.getItem("theam"),'head');
+            this.$emit('changeTheam',this.isApple);
         }
     },
     computed: {
@@ -96,61 +96,61 @@ export default {
 } */
 .navbar-light{
     background-color: lightskyblue;
-    opacity: 0.7;
-    text-align: center;
+    opacity         : 0.7;
+    text-align      : center;
 }
 .headNight{
     background-color: black;
-    opacity: 0.7;
-    text-align: center;
+    opacity         : 0.7;
+    text-align      : center;
 }
 .navbar-light .navbarTogglerIconNight {
     background-image: url(../../assets/Night_guide.svg);
 }
 .navbar-light .navbar-nav .nav-link:focus {
-    color: white;
+    color           : white;
 }
 .navbar-light .navbar-nav .nav-link:hover {
-    color: yellow;
+    color           : yellow;
 }
 .navbar-light .navbar-nav .navItem:focus {
-    color: #e4d8d5;
+    color           : #e4d8d5;
 }
 .navbar-light .navbar-nav .navItem:hover {
-    color: white;
+    color           : white;
 }
 .navbar-light .navbar-nav .nav-link {
-    color: white;
+    color           : white;
 }
 .navbar-light .navbar-nav .navItem{
-    color: #e4d8d5;
+    color           : #e4d8d5;
 }
 .navbar-light .navbar-nav .navItem:hover{
-    color: white;
+    color           : white;
 }
 .nav-item .nav-link .navItem a:hover{
-    color: #e4d8d5;
+    color           : #e4d8d5;
 }
 .navbar-light .navbar-nav .show>.nav-link {
-    color: #f769ad;
+    color           : #f769ad;
 }
 .navbar-nav .dropdown-menu {
-    position: static;
-    float: none;
-    width: 200px;
-    margin: 0 auto;
+    position        : static;
+    float           : none;
+    width           : 200px;
+    margin          : 0 auto;
 }
 .showMenu{
     background-color: #7acafb;
-    text-align: center;
+    text-align      : center;
 }
 .showMenuNight{
     background-color:gray;
 }
 .navbar-nav .nav-item .dropdown{
-    z-index: 1;
+    z-index         : 1;
 }
 button:focus{
-    outline: none;
+    outline         : none;
 }
 </style>

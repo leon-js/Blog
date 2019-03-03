@@ -48,16 +48,16 @@ export default {
 
 <style>
 html,body{
-  margin: 0;
-  padding: 0;
+  margin    : 0;
+  padding   : 0;
 }
 .body_body{
   min-height: 85vh;
 }
 .app{
-  color: black;
+  color     : black;
 }
 .apple{
-  color: gainsboro;
+  color     : gainsboro;
 }
 </style>
