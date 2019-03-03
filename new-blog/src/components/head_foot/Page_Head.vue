@@ -90,7 +90,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 /* .dropdown-menu .dropdown-item:hover{
     background-color: red;
 } */
@@ -107,12 +107,6 @@ export default {
 .navbar-light .navbarTogglerIconNight {
     background-image: url(../../assets/Night_guide.svg);
 }
-/* .nav-link{
-    color: white;
-} */
-/* .navbar-nav .nav-item a:hover{
-    color: yellow;
-} */
 .navbar-light .navbar-nav .nav-link:focus {
     color: white;
 }
@@ -153,6 +147,10 @@ export default {
 .showMenuNight{
     background-color:gray;
 }
+.navbar-nav .nav-item .dropdown{
+    z-index: 1;
+}
+button:focus{
+    outline: none;
+}
 </style>
-// :style="{backgroundColor: headBgColor, opacity: '0.7', textAlign: 'center'}"
-:style="{backgroundColor: '#3bb1f5', textAlign: 'center'}"

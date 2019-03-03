@@ -1,7 +1,9 @@
 <template>
   <div class="app" :class="{apple: isApple}" :isApple="isApple">
     <Page_Head @changeTheam="changeIsApple"></Page_Head>
-      <router-view/>
+      <div class="body_body">
+        <router-view/>
+      </div>
     <Page_Foot></Page_Foot>
   </div>
 </template>
@@ -49,13 +51,13 @@ html,body{
   margin: 0;
   padding: 0;
 }
-
+.body_body{
+  min-height: 85vh;
+}
 .app{
   color: black;
 }
-
 .apple{
   color: gainsboro;
 }
-
 </style>
