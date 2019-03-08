@@ -39,6 +39,9 @@ export default {
     changeIsApple(isApple){
       this.isApple = isApple
     },
+    // changeIsApple(isApple){
+    //   this.isApple = isApple
+    // },
   },
   computed: {
     
