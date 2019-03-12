@@ -113,10 +113,10 @@ export default {
 .navbar-light .navbar-nav .nav-link:hover {
     color           : yellow;
 }
-.navbar-light .navbar-nav .navItem:focus {
+.navbar-light .navbar-nav .nav-link .navItem:focus {
     color           : #e4d8d5;
 }
-.navbar-light .navbar-nav .navItem:hover {
+.navbar-light .navbar-nav .nav-link .navItem:hover {
     color           : white;
 }
 .navbar-light .navbar-nav .nav-link {
@@ -150,7 +150,7 @@ export default {
 .navbar-nav .nav-item .dropdown{
     z-index         : 1;
 }
-button:focus{
+body button:focus{
     outline         : none;
 }
 </style>
